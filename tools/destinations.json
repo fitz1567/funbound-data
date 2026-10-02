@@ -1,0 +1,710 @@
+[
+ {
+  "id": "orlando",
+  "name": "Orlando",
+  "region": "Florida",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "MCO",
+  "advisory": null,
+  "categories": [
+   "theme parks",
+   "family"
+  ],
+  "blurb": "Theme parks, water parks and year-round sunshine."
+ },
+ {
+  "id": "tampa",
+  "name": "Tampa Bay",
+  "region": "Florida",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "TPA",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "theme parks",
+   "family"
+  ],
+  "blurb": "Gulf beaches, an aquarium and roller coasters nearby."
+ },
+ {
+  "id": "san-diego",
+  "name": "San Diego",
+  "region": "California",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "SAN",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "family",
+   "cities"
+  ],
+  "blurb": "Mild weather, a famous zoo and easy beaches."
+ },
+ {
+  "id": "honolulu",
+  "name": "Honolulu",
+  "region": "Hawaii",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "HNL",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "islands",
+   "family"
+  ],
+  "blurb": "Waikiki, snorkeling and volcano hikes."
+ },
+ {
+  "id": "maui",
+  "name": "Maui",
+  "region": "Hawaii",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "OGG",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "islands",
+   "outdoors"
+  ],
+  "blurb": "Beaches, whale watching and the Road to Hana."
+ },
+ {
+  "id": "anaheim",
+  "name": "Anaheim",
+  "region": "California",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "SNA",
+  "advisory": null,
+  "categories": [
+   "theme parks",
+   "family"
+  ],
+  "blurb": "Southern California’s theme parks and beaches."
+ },
+ {
+  "id": "myrtle-beach",
+  "name": "Myrtle Beach",
+  "region": "South Carolina",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "MYR",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "family"
+  ],
+  "blurb": "A long beach, mini golf and a boardwalk."
+ },
+ {
+  "id": "destin",
+  "name": "Destin",
+  "region": "Florida",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "VPS",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "family"
+  ],
+  "blurb": "White sand and calm, clear Gulf water."
+ },
+ {
+  "id": "smoky-mountains",
+  "name": "Great Smoky Mountains",
+  "region": "Tennessee",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "TYS",
+  "advisory": null,
+  "categories": [
+   "outdoors",
+   "family"
+  ],
+  "blurb": "America’s most visited national park, with family towns nearby."
+ },
+ {
+  "id": "grand-canyon",
+  "name": "Grand Canyon",
+  "region": "Arizona",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "PHX",
+  "advisory": null,
+  "categories": [
+   "outdoors"
+  ],
+  "blurb": "The South Rim is a scenic drive from Phoenix or Flagstaff."
+ },
+ {
+  "id": "yellowstone",
+  "name": "Yellowstone and Grand Teton",
+  "region": "Wyoming",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "JAC",
+  "advisory": null,
+  "categories": [
+   "outdoors",
+   "family"
+  ],
+  "blurb": "Geysers, wildlife and mountain lakes."
+ },
+ {
+  "id": "zion",
+  "name": "Zion and Bryce Canyon",
+  "region": "Utah",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "LAS",
+  "advisory": null,
+  "categories": [
+   "outdoors"
+  ],
+  "blurb": "Red-rock canyons a short drive from Las Vegas."
+ },
+ {
+  "id": "denver",
+  "name": "Denver and the Rockies",
+  "region": "Colorado",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "DEN",
+  "advisory": null,
+  "categories": [
+   "outdoors",
+   "cities"
+  ],
+  "blurb": "Mountain towns, hiking and ski slopes."
+ },
+ {
+  "id": "washington-dc",
+  "name": "Washington, D.C.",
+  "region": "District of Columbia",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "WAS",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "Free museums and monuments."
+ },
+ {
+  "id": "new-york",
+  "name": "New York City",
+  "region": "New York",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "NYC",
+  "advisory": null,
+  "categories": [
+   "cities"
+  ],
+  "blurb": "Broadway, museums and neighborhoods to explore."
+ },
+ {
+  "id": "boston",
+  "name": "Boston",
+  "region": "Massachusetts",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "BOS",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "History on foot along the Freedom Trail."
+ },
+ {
+  "id": "chicago",
+  "name": "Chicago",
+  "region": "Illinois",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "CHI",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "Architecture boat tours, museums and deep-dish pizza."
+ },
+ {
+  "id": "nashville",
+  "name": "Nashville",
+  "region": "Tennessee",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "BNA",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "music"
+  ],
+  "blurb": "Live music every night."
+ },
+ {
+  "id": "new-orleans",
+  "name": "New Orleans",
+  "region": "Louisiana",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "MSY",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "music"
+  ],
+  "blurb": "Jazz, food and festivals."
+ },
+ {
+  "id": "san-antonio",
+  "name": "San Antonio",
+  "region": "Texas",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "SAT",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "The River Walk, the Alamo and theme parks."
+ },
+ {
+  "id": "charleston",
+  "name": "Charleston",
+  "region": "South Carolina",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "CHS",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "beaches"
+  ],
+  "blurb": "Historic streets and nearby beaches."
+ },
+ {
+  "id": "savannah",
+  "name": "Savannah",
+  "region": "Georgia",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "SAV",
+  "advisory": null,
+  "categories": [
+   "cities"
+  ],
+  "blurb": "Squares, oaks and riverfront walks."
+ },
+ {
+  "id": "key-west",
+  "name": "Key West",
+  "region": "Florida",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "EYW",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Sunsets, snorkeling and a laid-back island town."
+ },
+ {
+  "id": "anchorage",
+  "name": "Alaska",
+  "region": "Alaska",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "ANC",
+  "advisory": null,
+  "categories": [
+   "outdoors"
+  ],
+  "blurb": "Glaciers, wildlife and summer midnight sun."
+ },
+ {
+  "id": "seattle",
+  "name": "Seattle",
+  "region": "Washington",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "SEA",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "outdoors"
+  ],
+  "blurb": "Waterfront markets and mountain day trips."
+ },
+ {
+  "id": "san-juan",
+  "name": "San Juan",
+  "region": "Puerto Rico",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "SJU",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Beaches and old forts, no passport needed from the U.S."
+ },
+ {
+  "id": "st-thomas",
+  "name": "St. Thomas",
+  "region": "U.S. Virgin Islands",
+  "country": "United States",
+  "domestic": true,
+  "fareCode": "STT",
+  "advisory": null,
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Caribbean beaches, no passport needed from the U.S."
+ },
+ {
+  "id": "vancouver",
+  "name": "Vancouver",
+  "region": "British Columbia",
+  "country": "Canada",
+  "domestic": false,
+  "fareCode": "YVR",
+  "advisory": "CA",
+  "categories": [
+   "cities",
+   "outdoors"
+  ],
+  "blurb": "Mountains and ocean in one city."
+ },
+ {
+  "id": "montreal",
+  "name": "Montreal",
+  "region": "Quebec",
+  "country": "Canada",
+  "domestic": false,
+  "fareCode": "YMQ",
+  "advisory": "CA",
+  "categories": [
+   "cities"
+  ],
+  "blurb": "A taste of Europe a short flight away."
+ },
+ {
+  "id": "banff",
+  "name": "Banff",
+  "region": "Alberta",
+  "country": "Canada",
+  "domestic": false,
+  "fareCode": "YYC",
+  "advisory": "CA",
+  "categories": [
+   "outdoors"
+  ],
+  "blurb": "Turquoise lakes in the Canadian Rockies."
+ },
+ {
+  "id": "tokyo",
+  "name": "Tokyo",
+  "region": "Japan",
+  "country": "Japan",
+  "domestic": false,
+  "fareCode": "TYO",
+  "advisory": "JA",
+  "categories": [
+   "cities",
+   "theme parks",
+   "family"
+  ],
+  "blurb": "Food, gardens and world-famous theme parks."
+ },
+ {
+  "id": "reykjavik",
+  "name": "Reykjavik",
+  "region": "Iceland",
+  "country": "Iceland",
+  "domestic": false,
+  "fareCode": "REK",
+  "advisory": "IC",
+  "categories": [
+   "outdoors"
+  ],
+  "blurb": "Waterfalls, hot springs and the northern lights."
+ },
+ {
+  "id": "dublin",
+  "name": "Dublin",
+  "region": "Ireland",
+  "country": "Ireland",
+  "domestic": false,
+  "fareCode": "DUB",
+  "advisory": "EI",
+  "categories": [
+   "cities"
+  ],
+  "blurb": "Friendly pubs, castles and green countryside."
+ },
+ {
+  "id": "lisbon",
+  "name": "Lisbon",
+  "region": "Portugal",
+  "country": "Portugal",
+  "domestic": false,
+  "fareCode": "LIS",
+  "advisory": "PO",
+  "categories": [
+   "cities",
+   "beaches"
+  ],
+  "blurb": "Hilltop views, trams and beaches nearby."
+ },
+ {
+  "id": "zurich",
+  "name": "Zurich and the Alps",
+  "region": "Switzerland",
+  "country": "Switzerland",
+  "domestic": false,
+  "fareCode": "ZRH",
+  "advisory": "SR",
+  "categories": [
+   "outdoors",
+   "cities"
+  ],
+  "blurb": "Scenic trains into the Alps."
+ },
+ {
+  "id": "copenhagen",
+  "name": "Copenhagen",
+  "region": "Denmark",
+  "country": "Denmark",
+  "domestic": false,
+  "fareCode": "CPH",
+  "advisory": "DA",
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "Bikes, harbor swims and the world’s oldest amusement park."
+ },
+ {
+  "id": "oslo",
+  "name": "Oslo and the fjords",
+  "region": "Norway",
+  "country": "Norway",
+  "domestic": false,
+  "fareCode": "OSL",
+  "advisory": "NO",
+  "categories": [
+   "outdoors"
+  ],
+  "blurb": "Fjord cruises and mountain railways."
+ },
+ {
+  "id": "helsinki",
+  "name": "Helsinki",
+  "region": "Finland",
+  "country": "Finland",
+  "domestic": false,
+  "fareCode": "HEL",
+  "advisory": "FI",
+  "categories": [
+   "cities"
+  ],
+  "blurb": "Design, saunas and island ferries."
+ },
+ {
+  "id": "singapore",
+  "name": "Singapore",
+  "region": "Singapore",
+  "country": "Singapore",
+  "domestic": false,
+  "fareCode": "SIN",
+  "advisory": "SN",
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "Gardens, hawker food and a famous zoo."
+ },
+ {
+  "id": "auckland",
+  "name": "Auckland",
+  "region": "New Zealand",
+  "country": "New Zealand",
+  "domestic": false,
+  "fareCode": "AKL",
+  "advisory": "NZ",
+  "categories": [
+   "outdoors",
+   "cities"
+  ],
+  "blurb": "Beaches, volcanoes and adventure."
+ },
+ {
+  "id": "sydney",
+  "name": "Sydney",
+  "region": "Australia",
+  "country": "Australia",
+  "domestic": false,
+  "fareCode": "SYD",
+  "advisory": "AS",
+  "categories": [
+   "cities",
+   "beaches"
+  ],
+  "blurb": "The harbor, beaches and wildlife parks."
+ },
+ {
+  "id": "aruba",
+  "name": "Aruba",
+  "region": "Aruba",
+  "country": "Aruba",
+  "domestic": false,
+  "fareCode": "AUA",
+  "advisory": "AA",
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Sunny, dry and outside the hurricane belt."
+ },
+ {
+  "id": "curacao",
+  "name": "Curaçao",
+  "region": "Curaçao",
+  "country": "Curaçao",
+  "domestic": false,
+  "fareCode": "CUR",
+  "advisory": "UC",
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Colorful Willemstad and great snorkeling."
+ },
+ {
+  "id": "bermuda",
+  "name": "Bermuda",
+  "region": "Bermuda",
+  "country": "Bermuda",
+  "domestic": false,
+  "fareCode": "BDA",
+  "advisory": "BD",
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Pink-sand beaches under two hours from the East Coast."
+ },
+ {
+  "id": "grand-cayman",
+  "name": "Grand Cayman",
+  "region": "Cayman Islands",
+  "country": "Cayman Islands",
+  "domestic": false,
+  "fareCode": "GCM",
+  "advisory": "CJ",
+  "categories": [
+   "beaches",
+   "islands",
+   "family"
+  ],
+  "blurb": "Seven Mile Beach and Stingray City."
+ },
+ {
+  "id": "barbados",
+  "name": "Barbados",
+  "region": "Barbados",
+  "country": "Barbados",
+  "domestic": false,
+  "fareCode": "BGI",
+  "advisory": "BB",
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Calm west-coast beaches and island culture."
+ },
+ {
+  "id": "turks-and-caicos",
+  "name": "Turks and Caicos",
+  "region": "Turks and Caicos",
+  "country": "Turks and Caicos Islands",
+  "domestic": false,
+  "fareCode": "PLS",
+  "advisory": "TK",
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Grace Bay’s turquoise water."
+ },
+ {
+  "id": "cancun",
+  "name": "Cancún",
+  "region": "Quintana Roo",
+  "country": "Mexico",
+  "domestic": false,
+  "fareCode": "CUN",
+  "advisory": "MX",
+  "categories": [
+   "beaches",
+   "family"
+  ],
+  "blurb": "All-inclusive resorts, cenotes and Mayan ruins."
+ },
+ {
+  "id": "london",
+  "name": "London",
+  "region": "England",
+  "country": "United Kingdom",
+  "domestic": false,
+  "fareCode": "LON",
+  "advisory": "UK",
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "Free museums, palaces and West End shows."
+ },
+ {
+  "id": "rome",
+  "name": "Rome",
+  "region": "Italy",
+  "country": "Italy",
+  "domestic": false,
+  "fareCode": "ROM",
+  "advisory": "IT",
+  "categories": [
+   "cities"
+  ],
+  "blurb": "Ancient history and the best gelato."
+ },
+ {
+  "id": "costa-rica",
+  "name": "Costa Rica",
+  "region": "Costa Rica",
+  "country": "Costa Rica",
+  "domestic": false,
+  "fareCode": "SJO",
+  "advisory": "CS",
+  "categories": [
+   "outdoors",
+   "beaches"
+  ],
+  "blurb": "Rainforests, volcanoes and wildlife."
+ }
+]

@@ -1,0 +1,61 @@
+# FunBound's nightly fares. Fetches them from Travelpayouts (the token is this repo's TRAVELPAYOUTS_TOKEN secret) and
+# publishes them with GitHub Pages. Nothing is committed, so the repo stays small, and an airport that fails keeps last
+# night's file. Made by FunBound/hosting/publish.sh in the ClaudeApps project; edit it there.
+name: Fares
+on:
+  schedule:
+    - cron: '17 7 * * *'   # every night at 07:17 UTC (3:17 a.m. in New York)
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write          # the monthly check-in commit
+  pages: write
+  id-token: write
+concurrency:
+  group: fares
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Monthly check-in (GitHub pauses nightly schedules after 60 days without a commit)
+        if: github.event_name == 'schedule'
+        continue-on-error: true
+        run: |
+          if [ "$(date -u +%d)" = "01" ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit --allow-empty -qm "Monthly check-in: keeps the nightly schedule on"
+            git push -q origin HEAD:main
+          fi
+      - name: Start from last night's files
+        run: |
+          site="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}"
+          mkdir -p site/flights
+          if curl -fsS "$site/index.json" -o site/index.json; then
+            for o in $(node -e 'console.log(JSON.parse(require("fs").readFileSync("site/index.json", "utf8")).origins.join(" "))'); do
+              curl -fsS "$site/flights/$o.json" -o "site/flights/$o.json" || echo "No file yet for $o"
+            done
+          fi
+      - name: Fetch tonight's fares
+        env:
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+          FUNBOUND_OUT: site
+          FUNBOUND_DESTINATIONS: tools/destinations.json
+        run: node tools/fares.mjs
+      - name: Add the site's other files
+        run: cp -R public/. site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,827 @@
+{
+ "asOf": "2026-09-30",
+ "coverage": {
+  "from": "2026-10-01",
+  "to": "2027-12-31",
+  "hotelsPublishedThrough": "2027-11-30",
+  "ticketsPublishedThrough": "2027-10-31"
+ },
+ "sources": [
+  {
+   "name": "MouseSavers: 2026 and 2027 Disney resort rates and season dates",
+   "url": "https://www.mousesavers.com/2027-pop-century-room-rates-season-dates/"
+  },
+  {
+   "name": "MouseSavers: Walt Disney World ticket prices (tax included)",
+   "url": "https://www.mousesavers.com/regular-walt-disney-world-ticket-prices/"
+  },
+  {
+   "name": "AllEars: Disney World announces 2027 ticket prices",
+   "url": "https://allears.net/2026/04/16/news-disney-world-announces-2027-ticket-prices/"
+  },
+  {
+   "name": "Lightning Lane prices (2026)",
+   "url": "https://wdwprepschool.com/lightning-lane-passes/"
+  },
+  {
+   "name": "Mears Connect fares",
+   "url": "https://www.mearsconnect.com/faq"
+  }
+ ],
+ "baseResort": "pop-century",
+ "calendar": [
+  {
+   "from": "2026-10-01",
+   "to": "2026-10-01",
+   "season": "Fall",
+   "rates": [
+    244,
+    259,
+    304
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-10-02",
+   "to": "2026-10-04",
+   "season": "Special event",
+   "rates": [
+    332
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-10-05",
+   "to": "2026-10-17",
+   "season": "Fall",
+   "rates": [
+    244,
+    259,
+    304
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-10-18",
+   "to": "2026-10-28",
+   "season": "Fall 2",
+   "rates": [
+    241,
+    262,
+    296
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-10-29",
+   "to": "2026-10-31",
+   "season": "Halloween",
+   "rates": [
+    297
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-11-01",
+   "to": "2026-11-18",
+   "season": "Fall 2",
+   "rates": [
+    241,
+    262,
+    296
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-11-19",
+   "to": "2026-11-27",
+   "season": "Thanksgiving",
+   "rates": [
+    321
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-11-28",
+   "to": "2026-12-03",
+   "season": "Winter",
+   "rates": [
+    262,
+    303
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-12-04",
+   "to": "2026-12-10",
+   "season": "Winter 2",
+   "rates": [
+    297,
+    358
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-12-11",
+   "to": "2026-12-23",
+   "season": "Winter 3",
+   "rates": [
+    379
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2026-12-24",
+   "to": "2026-12-31",
+   "season": "Holiday",
+   "rates": [
+    396
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-01-01",
+   "to": "2027-01-01",
+   "season": "New Year’s",
+   "rates": [
+    396
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-01-02",
+   "to": "2027-01-02",
+   "season": "Holiday",
+   "rates": [
+    327
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-01-03",
+   "to": "2027-01-07",
+   "season": "Value",
+   "rates": [
+    219,
+    236,
+    284
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-01-08",
+   "to": "2027-01-10",
+   "season": "Marathon weekend",
+   "rates": [
+    305
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-01-11",
+   "to": "2027-02-03",
+   "season": "Value",
+   "rates": [
+    219,
+    236,
+    284
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-02-04",
+   "to": "2027-02-11",
+   "season": "Spring",
+   "rates": [
+    264,
+    281,
+    336
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-02-12",
+   "to": "2027-02-13",
+   "season": "Presidents’ Day",
+   "rates": [
+    353
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-02-14",
+   "to": "2027-02-21",
+   "season": "Spring 2",
+   "rates": [
+    291,
+    307,
+    362
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-02-22",
+   "to": "2027-02-25",
+   "season": "Spring",
+   "rates": [
+    264,
+    281,
+    336
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-02-26",
+   "to": "2027-03-18",
+   "season": "Spring 2",
+   "rates": [
+    291,
+    307,
+    362
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-03-19",
+   "to": "2027-04-01",
+   "season": "Easter",
+   "rates": [
+    354
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-04-02",
+   "to": "2027-04-10",
+   "season": "Spring 2",
+   "rates": [
+    291,
+    307,
+    362
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-04-11",
+   "to": "2027-04-22",
+   "season": "Spring",
+   "rates": [
+    264,
+    281,
+    336
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-04-23",
+   "to": "2027-04-24",
+   "season": "Spring 2",
+   "rates": [
+    291,
+    307,
+    362
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-04-25",
+   "to": "2027-05-23",
+   "season": "Regular",
+   "rates": [
+    258,
+    276,
+    310
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-05-24",
+   "to": "2027-05-27",
+   "season": "Summer",
+   "rates": [
+    269,
+    317
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-05-28",
+   "to": "2027-05-30",
+   "season": "Summer holiday",
+   "rates": [
+    330
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-05-31",
+   "to": "2027-07-01",
+   "season": "Summer",
+   "rates": [
+    269,
+    317
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-07-02",
+   "to": "2027-07-03",
+   "season": "Summer holiday",
+   "rates": [
+    330
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-07-04",
+   "to": "2027-07-31",
+   "season": "Summer",
+   "rates": [
+    269,
+    317
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-08-01",
+   "to": "2027-08-14",
+   "season": "Summer 2",
+   "rates": [
+    252,
+    271,
+    326
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-08-15",
+   "to": "2027-09-02",
+   "season": "Value 2",
+   "rates": [
+    232,
+    252,
+    272
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-09-03",
+   "to": "2027-09-05",
+   "season": "Labor Day",
+   "rates": [
+    295
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-09-06",
+   "to": "2027-09-30",
+   "season": "Fall",
+   "rates": [
+    255,
+    270,
+    316
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-10-01",
+   "to": "2027-10-03",
+   "season": "Special event",
+   "rates": [
+    353
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-10-04",
+   "to": "2027-10-16",
+   "season": "Fall",
+   "rates": [
+    255,
+    270,
+    316
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-10-17",
+   "to": "2027-10-27",
+   "season": "Fall 2",
+   "rates": [
+    262,
+    288,
+    320
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-10-28",
+   "to": "2027-10-30",
+   "season": "Special event",
+   "rates": [
+    302
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-10-31",
+   "to": "2027-11-19",
+   "season": "Fall 2",
+   "rates": [
+    262,
+    288,
+    320
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-11-20",
+   "to": "2027-11-26",
+   "season": "Thanksgiving",
+   "rates": [
+    338
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-11-27",
+   "to": "2027-11-27",
+   "season": "Winter",
+   "rates": [
+    330
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-11-28",
+   "to": "2027-11-30",
+   "season": "Winter 2",
+   "rates": [
+    323
+   ],
+   "estimated": false
+  },
+  {
+   "from": "2027-12-01",
+   "to": "2027-12-03",
+   "season": "Winter 2",
+   "rates": [
+    323
+   ],
+   "estimated": true
+  },
+  {
+   "from": "2027-12-04",
+   "to": "2027-12-10",
+   "season": "Winter 2",
+   "rates": [
+    309,
+    372
+   ],
+   "estimated": true
+  },
+  {
+   "from": "2027-12-11",
+   "to": "2027-12-23",
+   "season": "Winter 3",
+   "rates": [
+    394
+   ],
+   "estimated": true
+  },
+  {
+   "from": "2027-12-24",
+   "to": "2027-12-31",
+   "season": "Holiday",
+   "rates": [
+    412
+   ],
+   "estimated": true
+  }
+ ],
+ "resorts": [
+  {
+   "id": "pop-century",
+   "name": "Disney’s Pop Century Resort",
+   "tier": "value",
+   "room": "Standard Room",
+   "low": 219,
+   "high": 354,
+   "getAround": "Skyliner to EPCOT and Hollywood Studios; buses",
+   "parking": 15
+  },
+  {
+   "id": "all-star-movies",
+   "name": "Disney’s All-Star Movies Resort",
+   "tier": "value",
+   "room": "Standard Room",
+   "low": 159,
+   "high": 281,
+   "getAround": "Buses",
+   "parking": 15
+  },
+  {
+   "id": "art-of-animation",
+   "name": "Disney’s Art of Animation Resort",
+   "tier": "value",
+   "room": "Little Mermaid Standard Room",
+   "low": 260,
+   "high": 402,
+   "getAround": "Skyliner to EPCOT and Hollywood Studios; buses",
+   "parking": 15
+  },
+  {
+   "id": "coronado-springs",
+   "name": "Disney’s Coronado Springs Resort",
+   "tier": "moderate",
+   "room": "Village, Standard Location",
+   "low": 303,
+   "high": 444,
+   "getAround": "Buses",
+   "parking": 20
+  },
+  {
+   "id": "caribbean-beach",
+   "name": "Disney’s Caribbean Beach Resort",
+   "tier": "moderate",
+   "room": "Standard Location",
+   "low": 330,
+   "high": 452,
+   "getAround": "Skyliner hub; buses",
+   "parking": 20
+  },
+  {
+   "id": "port-orleans-french-quarter",
+   "name": "Disney’s Port Orleans Resort – French Quarter",
+   "tier": "moderate",
+   "room": "Standard Location",
+   "low": 336,
+   "high": 457,
+   "getAround": "Boat to Disney Springs; buses",
+   "parking": 20
+  },
+  {
+   "id": "animal-kingdom-lodge",
+   "name": "Disney’s Animal Kingdom Lodge",
+   "tier": "deluxe",
+   "room": "Resort View",
+   "low": 593,
+   "high": 784,
+   "getAround": "Buses; savanna animals outside",
+   "parking": 25
+  },
+  {
+   "id": "wilderness-lodge",
+   "name": "Disney’s Wilderness Lodge",
+   "tier": "deluxe",
+   "room": "Resort View",
+   "low": 658,
+   "high": 922,
+   "getAround": "Boat to Magic Kingdom; buses",
+   "parking": 25
+  },
+  {
+   "id": "contemporary",
+   "name": "Disney’s Contemporary Resort",
+   "tier": "deluxe",
+   "room": "Garden Wing, Resort View",
+   "low": 735,
+   "high": 872,
+   "getAround": "Walk or monorail to Magic Kingdom",
+   "parking": 25
+  },
+  {
+   "id": "beach-club",
+   "name": "Disney’s Beach Club Resort",
+   "tier": "deluxe",
+   "room": "Resort View",
+   "low": 748,
+   "high": 996,
+   "getAround": "Walk to EPCOT; boat to Hollywood Studios",
+   "parking": 25
+  },
+  {
+   "id": "polynesian",
+   "name": "Disney’s Polynesian Village Resort",
+   "tier": "deluxe",
+   "room": "Resort View",
+   "low": 883,
+   "high": 1144,
+   "getAround": "Monorail and boat to Magic Kingdom",
+   "parking": 25
+  },
+  {
+   "id": "grand-floridian",
+   "name": "Disney’s Grand Floridian Resort & Spa",
+   "tier": "deluxe",
+   "room": "Resort View",
+   "low": 961,
+   "high": 1276,
+   "getAround": "Monorail, boat and walkway to Magic Kingdom",
+   "parking": 25
+  }
+ ],
+ "tickets": {
+  "adult": [
+   {
+    "days": 1,
+    "low": 126.74,
+    "high": 222.59
+   },
+   {
+    "days": 2,
+    "low": 271.01,
+    "high": 411.15
+   },
+   {
+    "days": 3,
+    "low": 406.22,
+    "high": 605.84
+   },
+   {
+    "days": 4,
+    "low": 522.77,
+    "high": 773.12
+   },
+   {
+    "days": 5,
+    "low": 569.75,
+    "high": 870.59
+   },
+   {
+    "days": 6,
+    "low": 595.41,
+    "high": 929.82
+   },
+   {
+    "days": 7,
+    "low": 618.42,
+    "high": 965.75
+   },
+   {
+    "days": 8,
+    "low": 656.76,
+    "high": 1001.19
+   },
+   {
+    "days": 9,
+    "low": 679.66,
+    "high": 1011.33
+   },
+   {
+    "days": 10,
+    "low": 698.64,
+    "high": 1038.84
+   }
+  ],
+  "child": [
+   {
+    "days": 1,
+    "low": 121.41,
+    "high": 217.26
+   },
+   {
+    "days": 2,
+    "low": 261.01,
+    "high": 400.82
+   },
+   {
+    "days": 3,
+    "low": 391.53,
+    "high": 590.66
+   },
+   {
+    "days": 4,
+    "low": 504,
+    "high": 753.73
+   },
+   {
+    "days": 5,
+    "low": 549.34,
+    "high": 848.76
+   },
+   {
+    "days": 6,
+    "low": 574.19,
+    "high": 906.5
+   },
+   {
+    "days": 7,
+    "low": 596.43,
+    "high": 941.52
+   },
+   {
+    "days": 8,
+    "low": 633.76,
+    "high": 976.05
+   },
+   {
+    "days": 9,
+    "low": 655.99,
+    "high": 985.93
+   },
+   {
+    "days": 10,
+    "low": 674.36,
+    "high": 1012.75
+   }
+  ],
+  "hopper": [
+   {
+    "fromDays": 1,
+    "low": 79.88,
+    "high": 84.14
+   },
+   {
+    "fromDays": 2,
+    "low": 79.88,
+    "high": 101.18
+   },
+   {
+    "fromDays": 4,
+    "low": 90.53,
+    "high": 111.83
+   }
+  ]
+ },
+ "lightningLane": {
+  "taxRate": 0.065,
+  "multiPass": [
+   {
+    "park": "Magic Kingdom",
+    "low": 20,
+    "high": 45
+   },
+   {
+    "park": "EPCOT",
+    "low": 15,
+    "high": 37
+   },
+   {
+    "park": "Hollywood Studios",
+    "low": 20,
+    "high": 39
+   },
+   {
+    "park": "Animal Kingdom",
+    "low": 15,
+    "high": 35
+   }
+  ],
+  "singlePass": {
+   "low": 10,
+   "high": 25
+  },
+  "premierPass": [
+   {
+    "park": "Magic Kingdom",
+    "low": 329,
+    "high": 449
+   },
+   {
+    "park": "EPCOT",
+    "low": 169,
+    "high": 259
+   },
+   {
+    "park": "Hollywood Studios",
+    "low": 269,
+    "high": 359
+   },
+   {
+    "park": "Animal Kingdom",
+    "low": 129,
+    "high": 199
+   }
+  ]
+ },
+ "transport": {
+  "mearsStandard": {
+   "adult": 17.6,
+   "child": 14.3,
+   "note": "Per person each way, ages 3–9 at the child fare, under 3 free"
+  },
+  "mearsExpress": {
+   "roundTripUpTo4": 250,
+   "perExtraPerson": 55,
+   "note": "Round trip only"
+  },
+  "rideshare": {
+   "low": 35,
+   "high": 60
+  },
+  "rideshareXL": {
+   "low": 55,
+   "high": 90
+  },
+  "carService": {
+   "low": 130,
+   "high": 200
+  },
+  "rentalPerDay": {
+   "low": 45,
+   "high": 85
+  }
+ }
+}
