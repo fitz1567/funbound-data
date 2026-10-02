@@ -18,7 +18,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120   # about 3,200 requests take about 50 minutes
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -40,10 +40,13 @@ jobs:
       - name: Start from last night's files
         run: |
           site="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}"
-          mkdir -p site/flights
+          mkdir -p site/flights site/calendars
           if curl -fsS "$site/index.json" -o site/index.json; then
             for o in $(node -e 'console.log(JSON.parse(require("fs").readFileSync("site/index.json", "utf8")).origins.join(" "))'); do
               curl -fsS "$site/flights/$o.json" -o "site/flights/$o.json" || echo "No file yet for $o"
+            done
+            for o in $(node -e 'console.log((JSON.parse(require("fs").readFileSync("site/index.json", "utf8")).calendars || []).join(" "))'); do
+              curl -fsS "$site/calendars/$o.json" -o "site/calendars/$o.json" || echo "No calendar yet for $o"
             done
           fi
       - name: Fetch tonight's fares

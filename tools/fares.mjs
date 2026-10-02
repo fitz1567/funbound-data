@@ -1,7 +1,12 @@
-// Turns Travelpayouts' flight data (Aviasales, official partner API) into the small files FunBound downloads, one per
-// home airport: the fares to and from Orlando for every day (per airline, nonstop or not) and the cheapest fares to the
-// curated destinations. The API token stays here (in .env or a GitHub Actions secret); the app never sees it.
-//   node fares.mjs [JFK LGA …]      -> site/data/flights/<AIRPORT>.json and site/data/index.json
+// Turns Travelpayouts' flight data (Aviasales, official partner API) into the small files FunBound downloads, two per
+// home airport:
+//   flights/<AIRPORT>.json    the fares to and from Orlando for every day (per airline, nonstop or not) and the cheapest
+//                             round trip to each curated destination;
+//   calendars/<AIRPORT>.json  each destination's price calendar: the cheapest round trip found for each departure day
+//                             (with its return day), from /v1/prices/calendar. That endpoint returns every day it has
+//                             for the route in one request, whatever month is asked for, so it's one request a route.
+// The API token stays here (in .env or a GitHub Actions secret); the app never sees it.
+//   node fares.mjs [JFK LGA …]      -> site/data/flights/, site/data/calendars/ and site/data/index.json
 // Each night the funbound-data repo's GitHub Action runs this (see hosting/), with FUNBOUND_OUT and FUNBOUND_DESTINATIONS
 // pointing at its own folders. An airport that fails keeps the file already there, so the app keeps yesterday's fares.
 // Prices are the cheapest found in recent searches (Travelpayouts caches them for about 48 hours), so they're a guide.
@@ -10,7 +15,10 @@ import path from 'node:path';
 
 const HERE = import.meta.dirname, OUT = process.env.FUNBOUND_OUT || path.join(HERE, '../site/data');
 const DESTINATIONS = process.env.FUNBOUND_DESTINATIONS || path.join(HERE, '../Packages/TripKit/Sources/TripKit/Resources/destinations.json');
-// A pause after each request keeps the nightly run (about 1,100 requests) well under the API's rate limit.
+// The nightly budget, for the 42 airports and 51 destinations: per airport 27 requests for Orlando and the deals, plus one
+// calendar request per destination (same-city routes are skipped), so about 42 × 77 ≈ 3,200 requests a night. They go one
+// at a time with a pause after each, which keeps them under 100 a minute; Travelpayouts allows 300 a minute for the
+// calendar and 600 for the others. The run takes about 50 minutes.
 const PAUSE_MS = Number(process.env.FUNBOUND_PAUSE_MS ?? 600);
 const API = 'https://api.travelpayouts.com';
 // The busiest U.S. airports, plus a few Disney-heavy ones. Others fall back to estimates in the app.
@@ -55,6 +63,23 @@ export function deals(cheap, destinations) {
   return out.sort((a, b) => a.price - b.price);
 }
 
+// Airports that share a city with a destination code, so the route to it is skipped (JFK to New York, say).
+export const METRO = { NYC: ['JFK', 'LGA', 'EWR'], CHI: ['ORD', 'MDW'], WAS: ['DCA', 'IAD', 'BWI'], HOU: ['IAH', 'HOU'], DFW: ['DFW', 'DAL'] };
+export const sameCity = (origin, code) => origin === code || (METRO[code] || []).includes(origin);
+
+/** /v1/prices/calendar?calendar_type=departure_date → { "2026-11-12": [price, airline, stops, return day or null] }, the
+ *  cheapest round trip found leaving each day. (The day is the key, so it isn't repeated.) */
+export function calendarDays(data) {
+  const out = {};
+  for (const t of Object.values(data || {})) {
+    const day = String(t?.departure_at || '').slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !(t.price > 0) || !t.airline) continue;
+    const back = t.return_at ? String(t.return_at).slice(0, 10) : null;
+    if (!out[day] || out[day][0] > t.price) out[day] = [Math.round(t.price), t.airline, Number(t.transfers) || 0, back];
+  }
+  return Object.fromEntries(Object.entries(out).sort());
+}
+
 const sleep = ms => new Promise(res => setTimeout(res, ms));
 // The token goes in a header, so it never appears in a URL or a log.
 async function get(pathAndQuery, token) {
@@ -76,9 +101,10 @@ async function main() {
   const destinations = JSON.parse(fs.readFileSync(DESTINATIONS, 'utf8'));
   const origins = process.argv.slice(2).length ? process.argv.slice(2).map(s => s.toUpperCase()) : ORIGINS;
   const monthList = months(new Date(), 13), q = p => new URLSearchParams(p).toString();
-  const flights = path.join(OUT, 'flights');
+  const flights = path.join(OUT, 'flights'), calendars = path.join(OUT, 'calendars');
   fs.mkdirSync(flights, { recursive: true });
-  const failed = [];
+  fs.mkdirSync(calendars, { recursive: true });
+  const failed = [], failedCalendars = [];
   for (const origin of origins) {
     try {
       const to = [], from = [];
@@ -95,9 +121,25 @@ async function main() {
       failed.push(origin);
       console.error(`${origin}: ${e.message} (keeping its last file, if any)`);
     }
+    try {
+      const routes = {}, codes = [...new Set(destinations.map(d => d.fareCode))].filter(c => !sameCity(origin, c));
+      let misses = 0;
+      for (const code of codes) {
+        try {
+          const days = calendarDays((await get(`/v1/prices/calendar?${q({ origin, destination: code, currency: 'usd', depart_date: monthList[0], calendar_type: 'departure_date' })}`, token)).data);
+          if (Object.keys(days).length) routes[code] = days;
+        } catch (e) { misses++; console.error(`${origin}→${code}: ${e.message}`); }
+      }
+      if (misses === codes.length) throw new Error('every route failed');
+      fs.writeFileSync(path.join(calendars, `${origin}.json`), JSON.stringify({ origin, updated: new Date().toISOString().slice(0, 10), routes }));
+      console.log(`${origin}: calendars for ${Object.keys(routes).length} destinations`);
+    } catch (e) {
+      failedCalendars.push(origin);
+      console.error(`${origin} calendars: ${e.message} (keeping its last file, if any)`);
+    }
   }
-  const have = fs.readdirSync(flights).filter(f => /^[A-Z]{3}\.json$/.test(f)).map(f => f.slice(0, 3)).sort();
-  fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify({ updated: new Date().toISOString(), origins: have, failed }, null, 1));
+  const list = dir => fs.readdirSync(dir).filter(f => /^[A-Z]{3}\.json$/.test(f)).map(f => f.slice(0, 3)).sort();
+  fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify({ updated: new Date().toISOString(), origins: list(flights), calendars: list(calendars), failed, failedCalendars }, null, 1));
   if (failed.length === origins.length) { console.error('Every airport failed.'); process.exit(1); }
 }
 

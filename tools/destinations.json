@@ -4,6 +4,7 @@
   "name": "Orlando",
   "region": "Florida",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "MCO",
   "advisory": null,
@@ -11,13 +12,20 @@
    "theme parks",
    "family"
   ],
-  "blurb": "Theme parks, water parks and year-round sunshine."
+  "blurb": "Theme parks, water parks and year-round sunshine.",
+  "lat": 28.54,
+  "lon": -81.38,
+  "es": {
+   "name": "Orlando",
+   "blurb": "Parques temáticos, parques acuáticos y sol todo el año."
+  }
  },
  {
   "id": "tampa",
   "name": "Tampa Bay",
   "region": "Florida",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "TPA",
   "advisory": null,
@@ -26,13 +34,20 @@
    "theme parks",
    "family"
   ],
-  "blurb": "Gulf beaches, an aquarium and roller coasters nearby."
+  "blurb": "Gulf beaches, an aquarium and roller coasters nearby.",
+  "lat": 27.95,
+  "lon": -82.46,
+  "es": {
+   "name": "Bahía de Tampa",
+   "blurb": "Playas del Golfo, un acuario y montañas rusas cerca."
+  }
  },
  {
   "id": "san-diego",
   "name": "San Diego",
   "region": "California",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "SAN",
   "advisory": null,
@@ -41,13 +56,20 @@
    "family",
    "cities"
   ],
-  "blurb": "Mild weather, a famous zoo and easy beaches."
+  "blurb": "Mild weather, a famous zoo and easy beaches.",
+  "lat": 32.72,
+  "lon": -117.16,
+  "es": {
+   "name": "San Diego",
+   "blurb": "Clima templado, un zoológico famoso y playas fáciles."
+  }
  },
  {
   "id": "honolulu",
   "name": "Honolulu",
   "region": "Hawaii",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "HNL",
   "advisory": null,
@@ -56,13 +78,20 @@
    "islands",
    "family"
   ],
-  "blurb": "Waikiki, snorkeling and volcano hikes."
+  "blurb": "Waikiki, snorkeling and volcano hikes.",
+  "lat": 21.31,
+  "lon": -157.86,
+  "es": {
+   "name": "Honolulu",
+   "blurb": "Waikiki, esnórquel y caminatas por volcanes."
+  }
  },
  {
   "id": "maui",
   "name": "Maui",
   "region": "Hawaii",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "OGG",
   "advisory": null,
@@ -71,13 +100,20 @@
    "islands",
    "outdoors"
   ],
-  "blurb": "Beaches, whale watching and the Road to Hana."
+  "blurb": "Beaches, whale watching and the Road to Hana.",
+  "lat": 20.8,
+  "lon": -156.33,
+  "es": {
+   "name": "Maui",
+   "blurb": "Playas, avistamiento de ballenas y la carretera a Hana."
+  }
  },
  {
   "id": "anaheim",
   "name": "Anaheim",
   "region": "California",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "SNA",
   "advisory": null,
@@ -85,13 +121,20 @@
    "theme parks",
    "family"
   ],
-  "blurb": "Southern California’s theme parks and beaches."
+  "blurb": "Southern California’s theme parks and beaches.",
+  "lat": 33.84,
+  "lon": -117.91,
+  "es": {
+   "name": "Anaheim",
+   "blurb": "Los parques temáticos y las playas del sur de California."
+  }
  },
  {
   "id": "myrtle-beach",
   "name": "Myrtle Beach",
   "region": "South Carolina",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "MYR",
   "advisory": null,
@@ -99,13 +142,20 @@
    "beaches",
    "family"
   ],
-  "blurb": "A long beach, mini golf and a boardwalk."
+  "blurb": "A long beach, mini golf and a boardwalk.",
+  "lat": 33.69,
+  "lon": -78.89,
+  "es": {
+   "name": "Myrtle Beach",
+   "blurb": "Una playa larga, minigolf y un paseo marítimo."
+  }
  },
  {
   "id": "destin",
   "name": "Destin",
   "region": "Florida",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "VPS",
   "advisory": null,
@@ -113,13 +163,20 @@
    "beaches",
    "family"
   ],
-  "blurb": "White sand and calm, clear Gulf water."
+  "blurb": "White sand and calm, clear Gulf water.",
+  "lat": 30.39,
+  "lon": -86.5,
+  "es": {
+   "name": "Destin",
+   "blurb": "Arena blanca y agua del Golfo tranquila y clara."
+  }
  },
  {
   "id": "smoky-mountains",
   "name": "Great Smoky Mountains",
   "region": "Tennessee",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "TYS",
   "advisory": null,
@@ -127,26 +184,40 @@
    "outdoors",
    "family"
   ],
-  "blurb": "America’s most visited national park, with family towns nearby."
+  "blurb": "America’s most visited national park, with family towns nearby.",
+  "lat": 35.65,
+  "lon": -83.51,
+  "es": {
+   "name": "Great Smoky Mountains",
+   "blurb": "El parque nacional más visitado de EE. UU., con pueblos familiares cerca."
+  }
  },
  {
   "id": "grand-canyon",
   "name": "Grand Canyon",
   "region": "Arizona",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "PHX",
   "advisory": null,
   "categories": [
    "outdoors"
   ],
-  "blurb": "The South Rim is a scenic drive from Phoenix or Flagstaff."
+  "blurb": "The South Rim is a scenic drive from Phoenix or Flagstaff.",
+  "lat": 36.06,
+  "lon": -112.14,
+  "es": {
+   "name": "Gran Cañón",
+   "blurb": "El borde sur está a un paseo en auto desde Phoenix o Flagstaff."
+  }
  },
  {
   "id": "yellowstone",
   "name": "Yellowstone and Grand Teton",
   "region": "Wyoming",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "JAC",
   "advisory": null,
@@ -154,26 +225,40 @@
    "outdoors",
    "family"
   ],
-  "blurb": "Geysers, wildlife and mountain lakes."
+  "blurb": "Geysers, wildlife and mountain lakes.",
+  "lat": 44.43,
+  "lon": -110.59,
+  "es": {
+   "name": "Yellowstone y Grand Teton",
+   "blurb": "Géiseres, fauna y lagos de montaña."
+  }
  },
  {
   "id": "zion",
   "name": "Zion and Bryce Canyon",
   "region": "Utah",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "LAS",
   "advisory": null,
   "categories": [
    "outdoors"
   ],
-  "blurb": "Red-rock canyons a short drive from Las Vegas."
+  "blurb": "Red-rock canyons a short drive from Las Vegas.",
+  "lat": 37.3,
+  "lon": -113.03,
+  "es": {
+   "name": "Zion y Bryce Canyon",
+   "blurb": "Cañones de roca roja a poca distancia de Las Vegas."
+  }
  },
  {
   "id": "denver",
   "name": "Denver and the Rockies",
   "region": "Colorado",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "DEN",
   "advisory": null,
@@ -181,13 +266,20 @@
    "outdoors",
    "cities"
   ],
-  "blurb": "Mountain towns, hiking and ski slopes."
+  "blurb": "Mountain towns, hiking and ski slopes.",
+  "lat": 39.74,
+  "lon": -104.99,
+  "es": {
+   "name": "Denver y las Rocosas",
+   "blurb": "Pueblos de montaña, senderismo y pistas de esquí."
+  }
  },
  {
   "id": "washington-dc",
   "name": "Washington, D.C.",
   "region": "District of Columbia",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "WAS",
   "advisory": null,
@@ -195,26 +287,40 @@
    "cities",
    "family"
   ],
-  "blurb": "Free museums and monuments."
+  "blurb": "Free museums and monuments.",
+  "lat": 38.9,
+  "lon": -77.04,
+  "es": {
+   "name": "Washington D. C.",
+   "blurb": "Museos gratuitos y monumentos."
+  }
  },
  {
   "id": "new-york",
   "name": "New York City",
   "region": "New York",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "NYC",
   "advisory": null,
   "categories": [
    "cities"
   ],
-  "blurb": "Broadway, museums and neighborhoods to explore."
+  "blurb": "Broadway, museums and neighborhoods to explore.",
+  "lat": 40.71,
+  "lon": -74.01,
+  "es": {
+   "name": "Nueva York",
+   "blurb": "Broadway, museos y barrios para explorar."
+  }
  },
  {
   "id": "boston",
   "name": "Boston",
   "region": "Massachusetts",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "BOS",
   "advisory": null,
@@ -222,13 +328,20 @@
    "cities",
    "family"
   ],
-  "blurb": "History on foot along the Freedom Trail."
+  "blurb": "History on foot along the Freedom Trail.",
+  "lat": 42.36,
+  "lon": -71.06,
+  "es": {
+   "name": "Boston",
+   "blurb": "Historia a pie por el Freedom Trail."
+  }
  },
  {
   "id": "chicago",
   "name": "Chicago",
   "region": "Illinois",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "CHI",
   "advisory": null,
@@ -236,13 +349,20 @@
    "cities",
    "family"
   ],
-  "blurb": "Architecture boat tours, museums and deep-dish pizza."
+  "blurb": "Architecture boat tours, museums and deep-dish pizza.",
+  "lat": 41.88,
+  "lon": -87.63,
+  "es": {
+   "name": "Chicago",
+   "blurb": "Paseos en barco de arquitectura, museos y pizza al estilo Chicago."
+  }
  },
  {
   "id": "nashville",
   "name": "Nashville",
   "region": "Tennessee",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "BNA",
   "advisory": null,
@@ -250,13 +370,20 @@
    "cities",
    "music"
   ],
-  "blurb": "Live music every night."
+  "blurb": "Live music every night.",
+  "lat": 36.16,
+  "lon": -86.78,
+  "es": {
+   "name": "Nashville",
+   "blurb": "Música en vivo todas las noches."
+  }
  },
  {
   "id": "new-orleans",
   "name": "New Orleans",
   "region": "Louisiana",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "MSY",
   "advisory": null,
@@ -264,13 +391,20 @@
    "cities",
    "music"
   ],
-  "blurb": "Jazz, food and festivals."
+  "blurb": "Jazz, food and festivals.",
+  "lat": 29.95,
+  "lon": -90.07,
+  "es": {
+   "name": "Nueva Orleans",
+   "blurb": "Jazz, comida y festivales."
+  }
  },
  {
   "id": "san-antonio",
   "name": "San Antonio",
   "region": "Texas",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "SAT",
   "advisory": null,
@@ -278,13 +412,20 @@
    "cities",
    "family"
   ],
-  "blurb": "The River Walk, the Alamo and theme parks."
+  "blurb": "The River Walk, the Alamo and theme parks.",
+  "lat": 29.42,
+  "lon": -98.49,
+  "es": {
+   "name": "San Antonio",
+   "blurb": "El River Walk, El Álamo y parques temáticos."
+  }
  },
  {
   "id": "charleston",
   "name": "Charleston",
   "region": "South Carolina",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "CHS",
   "advisory": null,
@@ -292,26 +433,40 @@
    "cities",
    "beaches"
   ],
-  "blurb": "Historic streets and nearby beaches."
+  "blurb": "Historic streets and nearby beaches.",
+  "lat": 32.78,
+  "lon": -79.93,
+  "es": {
+   "name": "Charleston",
+   "blurb": "Calles históricas y playas cercanas."
+  }
  },
  {
   "id": "savannah",
   "name": "Savannah",
   "region": "Georgia",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "SAV",
   "advisory": null,
   "categories": [
    "cities"
   ],
-  "blurb": "Squares, oaks and riverfront walks."
+  "blurb": "Squares, oaks and riverfront walks.",
+  "lat": 32.08,
+  "lon": -81.09,
+  "es": {
+   "name": "Savannah",
+   "blurb": "Plazas, robles y paseos junto al río."
+  }
  },
  {
   "id": "key-west",
   "name": "Key West",
   "region": "Florida",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "EYW",
   "advisory": null,
@@ -319,26 +474,40 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Sunsets, snorkeling and a laid-back island town."
+  "blurb": "Sunsets, snorkeling and a laid-back island town.",
+  "lat": 24.56,
+  "lon": -81.78,
+  "es": {
+   "name": "Cayo Hueso",
+   "blurb": "Atardeceres, esnórquel y un pueblo isleño relajado."
+  }
  },
  {
   "id": "anchorage",
   "name": "Alaska",
   "region": "Alaska",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "ANC",
   "advisory": null,
   "categories": [
    "outdoors"
   ],
-  "blurb": "Glaciers, wildlife and summer midnight sun."
+  "blurb": "Glaciers, wildlife and summer midnight sun.",
+  "lat": 61.22,
+  "lon": -149.9,
+  "es": {
+   "name": "Alaska",
+   "blurb": "Glaciares, fauna y el sol de medianoche en verano."
+  }
  },
  {
   "id": "seattle",
   "name": "Seattle",
   "region": "Washington",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "SEA",
   "advisory": null,
@@ -346,13 +515,20 @@
    "cities",
    "outdoors"
   ],
-  "blurb": "Waterfront markets and mountain day trips."
+  "blurb": "Waterfront markets and mountain day trips.",
+  "lat": 47.61,
+  "lon": -122.33,
+  "es": {
+   "name": "Seattle",
+   "blurb": "Mercados frente al agua y excursiones a la montaña."
+  }
  },
  {
   "id": "san-juan",
   "name": "San Juan",
   "region": "Puerto Rico",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "SJU",
   "advisory": null,
@@ -360,13 +536,20 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Beaches and old forts, no passport needed from the U.S."
+  "blurb": "Beaches and old forts, no passport needed from the U.S.",
+  "lat": 18.47,
+  "lon": -66.11,
+  "es": {
+   "name": "San Juan",
+   "blurb": "Playas y fuertes antiguos, sin pasaporte desde EE. UU."
+  }
  },
  {
   "id": "st-thomas",
   "name": "St. Thomas",
   "region": "U.S. Virgin Islands",
   "country": "United States",
+  "countryCode": "US",
   "domestic": true,
   "fareCode": "STT",
   "advisory": null,
@@ -374,13 +557,20 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Caribbean beaches, no passport needed from the U.S."
+  "blurb": "Caribbean beaches, no passport needed from the U.S.",
+  "lat": 18.34,
+  "lon": -64.93,
+  "es": {
+   "name": "Saint Thomas",
+   "blurb": "Playas del Caribe, sin pasaporte desde EE. UU."
+  }
  },
  {
   "id": "vancouver",
   "name": "Vancouver",
   "region": "British Columbia",
   "country": "Canada",
+  "countryCode": "CA",
   "domestic": false,
   "fareCode": "YVR",
   "advisory": "CA",
@@ -388,39 +578,60 @@
    "cities",
    "outdoors"
   ],
-  "blurb": "Mountains and ocean in one city."
+  "blurb": "Mountains and ocean in one city.",
+  "lat": 49.28,
+  "lon": -123.12,
+  "es": {
+   "name": "Vancouver",
+   "blurb": "Montañas y mar en una sola ciudad."
+  }
  },
  {
   "id": "montreal",
   "name": "Montreal",
   "region": "Quebec",
   "country": "Canada",
+  "countryCode": "CA",
   "domestic": false,
   "fareCode": "YMQ",
   "advisory": "CA",
   "categories": [
    "cities"
   ],
-  "blurb": "A taste of Europe a short flight away."
+  "blurb": "A taste of Europe a short flight away.",
+  "lat": 45.5,
+  "lon": -73.57,
+  "es": {
+   "name": "Montreal",
+   "blurb": "Un toque de Europa a un vuelo corto."
+  }
  },
  {
   "id": "banff",
   "name": "Banff",
   "region": "Alberta",
   "country": "Canada",
+  "countryCode": "CA",
   "domestic": false,
   "fareCode": "YYC",
   "advisory": "CA",
   "categories": [
    "outdoors"
   ],
-  "blurb": "Turquoise lakes in the Canadian Rockies."
+  "blurb": "Turquoise lakes in the Canadian Rockies.",
+  "lat": 51.18,
+  "lon": -115.57,
+  "es": {
+   "name": "Banff",
+   "blurb": "Lagos turquesa en las Rocosas canadienses."
+  }
  },
  {
   "id": "tokyo",
   "name": "Tokyo",
   "region": "Japan",
   "country": "Japan",
+  "countryCode": "JP",
   "domestic": false,
   "fareCode": "TYO",
   "advisory": "JA",
@@ -429,39 +640,60 @@
    "theme parks",
    "family"
   ],
-  "blurb": "Food, gardens and world-famous theme parks."
+  "blurb": "Food, gardens and world-famous theme parks.",
+  "lat": 35.68,
+  "lon": 139.69,
+  "es": {
+   "name": "Tokio",
+   "blurb": "Comida, jardines y parques temáticos famosos en todo el mundo."
+  }
  },
  {
   "id": "reykjavik",
   "name": "Reykjavik",
   "region": "Iceland",
   "country": "Iceland",
+  "countryCode": "IS",
   "domestic": false,
   "fareCode": "REK",
   "advisory": "IC",
   "categories": [
    "outdoors"
   ],
-  "blurb": "Waterfalls, hot springs and the northern lights."
+  "blurb": "Waterfalls, hot springs and the northern lights.",
+  "lat": 64.15,
+  "lon": -21.94,
+  "es": {
+   "name": "Reikiavik",
+   "blurb": "Cascadas, aguas termales y auroras boreales."
+  }
  },
  {
   "id": "dublin",
   "name": "Dublin",
   "region": "Ireland",
   "country": "Ireland",
+  "countryCode": "IE",
   "domestic": false,
   "fareCode": "DUB",
   "advisory": "EI",
   "categories": [
    "cities"
   ],
-  "blurb": "Friendly pubs, castles and green countryside."
+  "blurb": "Friendly pubs, castles and green countryside.",
+  "lat": 53.35,
+  "lon": -6.26,
+  "es": {
+   "name": "Dublín",
+   "blurb": "Pubs acogedores, castillos y campo verde."
+  }
  },
  {
   "id": "lisbon",
   "name": "Lisbon",
   "region": "Portugal",
   "country": "Portugal",
+  "countryCode": "PT",
   "domestic": false,
   "fareCode": "LIS",
   "advisory": "PO",
@@ -469,13 +701,20 @@
    "cities",
    "beaches"
   ],
-  "blurb": "Hilltop views, trams and beaches nearby."
+  "blurb": "Hilltop views, trams and beaches nearby.",
+  "lat": 38.72,
+  "lon": -9.14,
+  "es": {
+   "name": "Lisboa",
+   "blurb": "Miradores, tranvías y playas cercanas."
+  }
  },
  {
   "id": "zurich",
   "name": "Zurich and the Alps",
   "region": "Switzerland",
   "country": "Switzerland",
+  "countryCode": "CH",
   "domestic": false,
   "fareCode": "ZRH",
   "advisory": "SR",
@@ -483,13 +722,20 @@
    "outdoors",
    "cities"
   ],
-  "blurb": "Scenic trains into the Alps."
+  "blurb": "Scenic trains into the Alps.",
+  "lat": 47.37,
+  "lon": 8.54,
+  "es": {
+   "name": "Zúrich y los Alpes",
+   "blurb": "Trenes panorámicos hacia los Alpes."
+  }
  },
  {
   "id": "copenhagen",
   "name": "Copenhagen",
   "region": "Denmark",
   "country": "Denmark",
+  "countryCode": "DK",
   "domestic": false,
   "fareCode": "CPH",
   "advisory": "DA",
@@ -497,39 +743,60 @@
    "cities",
    "family"
   ],
-  "blurb": "Bikes, harbor swims and the world’s oldest amusement park."
+  "blurb": "Bikes, harbor swims and the world’s oldest amusement park.",
+  "lat": 55.68,
+  "lon": 12.57,
+  "es": {
+   "name": "Copenhague",
+   "blurb": "Bicicletas, baños en el puerto y el parque de atracciones más antiguo del mundo."
+  }
  },
  {
   "id": "oslo",
   "name": "Oslo and the fjords",
   "region": "Norway",
   "country": "Norway",
+  "countryCode": "NO",
   "domestic": false,
   "fareCode": "OSL",
   "advisory": "NO",
   "categories": [
    "outdoors"
   ],
-  "blurb": "Fjord cruises and mountain railways."
+  "blurb": "Fjord cruises and mountain railways.",
+  "lat": 59.91,
+  "lon": 10.75,
+  "es": {
+   "name": "Oslo y los fiordos",
+   "blurb": "Cruceros por los fiordos y trenes de montaña."
+  }
  },
  {
   "id": "helsinki",
   "name": "Helsinki",
   "region": "Finland",
   "country": "Finland",
+  "countryCode": "FI",
   "domestic": false,
   "fareCode": "HEL",
   "advisory": "FI",
   "categories": [
    "cities"
   ],
-  "blurb": "Design, saunas and island ferries."
+  "blurb": "Design, saunas and island ferries.",
+  "lat": 60.17,
+  "lon": 24.94,
+  "es": {
+   "name": "Helsinki",
+   "blurb": "Diseño, saunas y ferris entre islas."
+  }
  },
  {
   "id": "singapore",
   "name": "Singapore",
   "region": "Singapore",
   "country": "Singapore",
+  "countryCode": "SG",
   "domestic": false,
   "fareCode": "SIN",
   "advisory": "SN",
@@ -537,13 +804,20 @@
    "cities",
    "family"
   ],
-  "blurb": "Gardens, hawker food and a famous zoo."
+  "blurb": "Gardens, hawker food and a famous zoo.",
+  "lat": 1.35,
+  "lon": 103.82,
+  "es": {
+   "name": "Singapur",
+   "blurb": "Jardines, comida callejera y un zoológico famoso."
+  }
  },
  {
   "id": "auckland",
   "name": "Auckland",
   "region": "New Zealand",
   "country": "New Zealand",
+  "countryCode": "NZ",
   "domestic": false,
   "fareCode": "AKL",
   "advisory": "NZ",
@@ -551,13 +825,20 @@
    "outdoors",
    "cities"
   ],
-  "blurb": "Beaches, volcanoes and adventure."
+  "blurb": "Beaches, volcanoes and adventure.",
+  "lat": -36.85,
+  "lon": 174.76,
+  "es": {
+   "name": "Auckland",
+   "blurb": "Playas, volcanes y aventura."
+  }
  },
  {
   "id": "sydney",
   "name": "Sydney",
   "region": "Australia",
   "country": "Australia",
+  "countryCode": "AU",
   "domestic": false,
   "fareCode": "SYD",
   "advisory": "AS",
@@ -565,13 +846,20 @@
    "cities",
    "beaches"
   ],
-  "blurb": "The harbor, beaches and wildlife parks."
+  "blurb": "The harbor, beaches and wildlife parks.",
+  "lat": -33.87,
+  "lon": 151.21,
+  "es": {
+   "name": "Sídney",
+   "blurb": "La bahía, playas y parques de fauna."
+  }
  },
  {
   "id": "aruba",
   "name": "Aruba",
   "region": "Aruba",
   "country": "Aruba",
+  "countryCode": "AW",
   "domestic": false,
   "fareCode": "AUA",
   "advisory": "AA",
@@ -579,13 +867,20 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Sunny, dry and outside the hurricane belt."
+  "blurb": "Sunny, dry and outside the hurricane belt.",
+  "lat": 12.52,
+  "lon": -70.03,
+  "es": {
+   "name": "Aruba",
+   "blurb": "Soleada, seca y fuera de la zona de huracanes."
+  }
  },
  {
   "id": "curacao",
   "name": "Curaçao",
   "region": "Curaçao",
   "country": "Curaçao",
+  "countryCode": "CW",
   "domestic": false,
   "fareCode": "CUR",
   "advisory": "UC",
@@ -593,13 +888,20 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Colorful Willemstad and great snorkeling."
+  "blurb": "Colorful Willemstad and great snorkeling.",
+  "lat": 12.12,
+  "lon": -68.93,
+  "es": {
+   "name": "Curaçao",
+   "blurb": "La colorida Willemstad y gran esnórquel."
+  }
  },
  {
   "id": "bermuda",
   "name": "Bermuda",
   "region": "Bermuda",
   "country": "Bermuda",
+  "countryCode": "BM",
   "domestic": false,
   "fareCode": "BDA",
   "advisory": "BD",
@@ -607,13 +909,20 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Pink-sand beaches under two hours from the East Coast."
+  "blurb": "Pink-sand beaches under two hours from the East Coast.",
+  "lat": 32.3,
+  "lon": -64.78,
+  "es": {
+   "name": "Bermudas",
+   "blurb": "Playas de arena rosada a menos de dos horas de la costa este."
+  }
  },
  {
   "id": "grand-cayman",
   "name": "Grand Cayman",
   "region": "Cayman Islands",
   "country": "Cayman Islands",
+  "countryCode": "KY",
   "domestic": false,
   "fareCode": "GCM",
   "advisory": "CJ",
@@ -622,13 +931,20 @@
    "islands",
    "family"
   ],
-  "blurb": "Seven Mile Beach and Stingray City."
+  "blurb": "Seven Mile Beach and Stingray City.",
+  "lat": 19.33,
+  "lon": -81.24,
+  "es": {
+   "name": "Gran Caimán",
+   "blurb": "Seven Mile Beach y Stingray City."
+  }
  },
  {
   "id": "barbados",
   "name": "Barbados",
   "region": "Barbados",
   "country": "Barbados",
+  "countryCode": "BB",
   "domestic": false,
   "fareCode": "BGI",
   "advisory": "BB",
@@ -636,13 +952,20 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Calm west-coast beaches and island culture."
+  "blurb": "Calm west-coast beaches and island culture.",
+  "lat": 13.1,
+  "lon": -59.61,
+  "es": {
+   "name": "Barbados",
+   "blurb": "Playas tranquilas en la costa oeste y cultura isleña."
+  }
  },
  {
   "id": "turks-and-caicos",
   "name": "Turks and Caicos",
   "region": "Turks and Caicos",
   "country": "Turks and Caicos Islands",
+  "countryCode": "TC",
   "domestic": false,
   "fareCode": "PLS",
   "advisory": "TK",
@@ -650,13 +973,20 @@
    "beaches",
    "islands"
   ],
-  "blurb": "Grace Bay’s turquoise water."
+  "blurb": "Grace Bay’s turquoise water.",
+  "lat": 21.79,
+  "lon": -72.17,
+  "es": {
+   "name": "Islas Turcas y Caicos",
+   "blurb": "El agua turquesa de Grace Bay."
+  }
  },
  {
   "id": "cancun",
   "name": "Cancún",
   "region": "Quintana Roo",
   "country": "Mexico",
+  "countryCode": "MX",
   "domestic": false,
   "fareCode": "CUN",
   "advisory": "MX",
@@ -664,13 +994,20 @@
    "beaches",
    "family"
   ],
-  "blurb": "All-inclusive resorts, cenotes and Mayan ruins."
+  "blurb": "All-inclusive resorts, cenotes and Mayan ruins.",
+  "lat": 21.16,
+  "lon": -86.85,
+  "es": {
+   "name": "Cancún",
+   "blurb": "Resorts todo incluido, cenotes y ruinas mayas."
+  }
  },
  {
   "id": "london",
   "name": "London",
   "region": "England",
   "country": "United Kingdom",
+  "countryCode": "GB",
   "domestic": false,
   "fareCode": "LON",
   "advisory": "UK",
@@ -678,26 +1015,40 @@
    "cities",
    "family"
   ],
-  "blurb": "Free museums, palaces and West End shows."
+  "blurb": "Free museums, palaces and West End shows.",
+  "lat": 51.51,
+  "lon": -0.13,
+  "es": {
+   "name": "Londres",
+   "blurb": "Museos gratuitos, palacios y obras del West End."
+  }
  },
  {
   "id": "rome",
   "name": "Rome",
   "region": "Italy",
   "country": "Italy",
+  "countryCode": "IT",
   "domestic": false,
   "fareCode": "ROM",
   "advisory": "IT",
   "categories": [
    "cities"
   ],
-  "blurb": "Ancient history and the best gelato."
+  "blurb": "Ancient history and the best gelato.",
+  "lat": 41.9,
+  "lon": 12.5,
+  "es": {
+   "name": "Roma",
+   "blurb": "Historia antigua y el mejor helado."
+  }
  },
  {
   "id": "costa-rica",
   "name": "Costa Rica",
   "region": "Costa Rica",
   "country": "Costa Rica",
+  "countryCode": "CR",
   "domestic": false,
   "fareCode": "SJO",
   "advisory": "CS",
@@ -705,6 +1056,12 @@
    "outdoors",
    "beaches"
   ],
-  "blurb": "Rainforests, volcanoes and wildlife."
+  "blurb": "Rainforests, volcanoes and wildlife.",
+  "lat": 9.93,
+  "lon": -84.08,
+  "es": {
+   "name": "Costa Rica",
+   "blurb": "Selvas, volcanes y fauna."
+  }
  }
 ]
