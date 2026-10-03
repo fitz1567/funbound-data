@@ -1,10 +1,11 @@
 // Turns Travelpayouts' flight data (Aviasales, official partner API) into the small files FunBound downloads, two per
 // home airport:
 //   flights/<AIRPORT>.json    the fares to and from Orlando for every day (per airline, nonstop or not) and the cheapest
-//                             round trip to each curated destination;
+//                             round trip to each curated destination (with its own booking link);
 //   calendars/<AIRPORT>.json  each destination's price calendar: the cheapest round trip found for each departure day
-//                             (with its return day), from /v1/prices/calendar. That endpoint returns every day it has
-//                             for the route in one request, whatever month is asked for, so it's one request a route.
+//                             (with its return day), from /aviasales/v3/prices_for_dates. Without a date it returns
+//                             every round trip it has for the route in one request, so it's one request a route.
+// Every fare carries the day it was seen, and fares seen over a week ago are dropped (see MAX_AGE_DAYS).
 // The API token stays here (in .env or a GitHub Actions secret); the app never sees it.
 //   node fares.mjs [JFK LGA …]      -> site/data/flights/, site/data/calendars/ and site/data/index.json
 // Each night the funbound-data repo's GitHub Action runs this (see hosting/), with FUNBOUND_OUT and FUNBOUND_DESTINATIONS
@@ -15,10 +16,10 @@ import path from 'node:path';
 
 const HERE = import.meta.dirname, OUT = process.env.FUNBOUND_OUT || path.join(HERE, '../site/data');
 const DESTINATIONS = process.env.FUNBOUND_DESTINATIONS || path.join(HERE, '../Packages/TripKit/Sources/TripKit/Resources/destinations.json');
-// The nightly budget, for the 42 airports and 51 destinations: per airport 27 requests for Orlando and the deals, plus one
-// calendar request per destination (same-city routes are skipped), so about 42 × 77 ≈ 3,200 requests a night. They go one
-// at a time with a pause after each, which keeps them under 100 a minute; Travelpayouts allows 300 a minute for the
-// calendar and 600 for the others. The run takes about 50 minutes.
+// The nightly budget, for the 42 airports and 51 destinations: per airport 25 requests for Orlando and the deals, plus one
+// calendar request per destination (same-city routes are skipped), so about 42 × 75 ≈ 3,150 requests a night. They go one
+// at a time with a pause after each, which keeps them under 100 a minute (Travelpayouts allows 600 a minute for
+// prices_for_dates). The run takes about 50 minutes.
 const PAUSE_MS = Number(process.env.FUNBOUND_PAUSE_MS ?? 600);
 const API = 'https://api.travelpayouts.com';
 // The busiest U.S. airports, plus a few Disney-heavy ones. Others fall back to estimates in the app.
@@ -32,33 +33,73 @@ export function env(name) {
   return m ? m[1].trim() : '';
 }
 
-/** Offers from /aviasales/v3/prices_for_dates → { "2026-11-12": [{ airline, price, stops }] }, keeping the cheapest
- *  per airline and per nonstop-or-not each day, so the app can filter by airline and stops. The offers' booking links
- *  are left out (they're for one adult, one way); the planner links to a round-trip search for the whole party. */
-export function byDay(offers) {
+// Freshness. /aviasales/v3/prices_for_dates gives each ticket's booking link, and the link's search_date (DDMMYYYY) is
+// the day a traveler's search found that price; /v3/get_latest_prices calls it found_at. (The older /v1/prices/cheap
+// and /v1/prices/calendar only give expires_at, which on Oct 2, 2026 was the same timestamp for every fare: when the
+// cache entry expires, not when the price was seen. That's why the feed moved to prices_for_dates.)
+// Fares seen more than MAX_AGE_DAYS before the run are dropped: they're the likeliest to have changed.
+export const MAX_AGE_DAYS = 7;
+// Aviasales links name the day and month but not the year, so a date a year out would open the wrong year. Airlines
+// sell about 330 days ahead anyway.
+export const MAX_AHEAD_DAYS = 330;
+
+/** The day a fare was found ("2026-10-01"), from found_at or the link's search_date; null when neither is there. */
+export function seenDay(t) {
+  if (t?.found_at && /^\d{4}-\d{2}-\d{2}/.test(t.found_at)) return String(t.found_at).slice(0, 10);
+  const m = String(t?.link || '').match(/[?&]search_date=(\d{2})(\d{2})(\d{4})/);
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : null;
+}
+
+const dayNumber = iso => Date.parse(`${iso}T00:00:00Z`) / 86400000;
+/** Keeps a fare when it leaves between today and MAX_AHEAD_DAYS out, and wasn't seen more than MAX_AGE_DAYS ago
+ *  (or has an expires_at that has already passed). */
+export function usable(t, today) {
+  const day = String(t?.departure_at || '').slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !(t.price > 0) || !t.airline) return false;
+  const ahead = dayNumber(day) - dayNumber(today);
+  if (ahead < 0 || ahead > MAX_AHEAD_DAYS) return false;
+  if (t.expires_at && Date.parse(t.expires_at) < Date.parse(`${today}T00:00:00Z`)) return false;
+  const seen = seenDay(t);
+  return !seen || dayNumber(today) - dayNumber(seen) <= MAX_AGE_DAYS;
+}
+
+/** Offers from /aviasales/v3/prices_for_dates → { "2026-11-12": [{ airline, price, stops, seen }] }, keeping the cheapest
+ *  per airline and per nonstop-or-not each day, so the app can filter by airline and stops. Only tickets between the
+ *  asked-for airports count (a search to MCO can return Sanford, SFB). The offers' booking links are left out (they're
+ *  long, and one adult one way); the app links to a one-way search for that day and the whole party. */
+export function byDay(offers, today = new Date().toISOString().slice(0, 10), airports = {}) {
   const best = new Map();
   for (const o of offers) {
-    const day = String(o.departure_at || '').slice(0, 10);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !(o.price > 0) || !o.airline) continue;
-    const stops = Number(o.transfers) || 0, key = `${day}|${o.airline}|${stops ? 1 : 0}`;
-    if (!best.has(key) || best.get(key).price > o.price) best.set(key, { airline: o.airline, price: Math.round(o.price), stops });
+    if (!usable(o, today)) continue;
+    if (airports.origin && o.origin_airport && o.origin_airport !== airports.origin) continue;
+    if (airports.destination && o.destination_airport && o.destination_airport !== airports.destination) continue;
+    const day = o.departure_at.slice(0, 10), stops = Number(o.transfers) || 0, key = `${day}|${o.airline}|${stops ? 1 : 0}`;
+    if (!best.has(key) || best.get(key).price > o.price) best.set(key, { airline: o.airline, price: Math.round(o.price), stops, seen: seenDay(o) });
   }
   const out = {};
-  for (const [key, fare] of [...best].sort()) (out[key.slice(0, 10)] ||= []).push(fare);
+  for (const [key, fare] of [...best].sort()) {
+    if (!fare.seen) delete fare.seen;
+    (out[key.slice(0, 10)] ||= []).push(fare);
+  }
   for (const list of Object.values(out)) list.sort((a, b) => a.price - b.price);
   return out;
 }
 
-/** /v1/prices/cheap?destination=- → the cheapest round trip to each curated destination. */
-export function deals(cheap, destinations) {
+/** /aviasales/v3/prices_for_dates?origin=X&one_way=false&unique=true (the cheapest round trip to each place found
+ *  lately) → the cheapest to each curated destination, cheapest first, each with its own booking link (the exact
+ *  ticket, for one adult) and the day it was seen. A destination's code can be a city (LON) or an airport (MCO). */
+export function deals(tickets, destinations, today = new Date().toISOString().slice(0, 10)) {
   const out = [];
   for (const d of destinations) {
-    const byStops = cheap?.[d.fareCode];
-    if (!byStops) continue;
-    const best = Object.entries(byStops).map(([stops, t]) => ({ stops: Number(stops), ...t })).filter(t => t.price > 0).sort((a, b) => a.price - b.price)[0];
+    const best = (tickets || []).filter(t => (t.destination === d.fareCode || t.destination_airport === d.fareCode) && usable(t, today))
+      .sort((a, b) => a.price - b.price)[0];
     if (!best) continue;
-    out.push({ destination: d.fareCode, city: d.name, country: d.country, advisory: d.advisory ?? null, price: Math.round(best.price),
-      depart: String(best.departure_at).slice(0, 10), return: best.return_at ? String(best.return_at).slice(0, 10) : null, airline: best.airline, stops: best.stops, link: null });
+    const deal = { destination: d.fareCode, city: d.name, country: d.country, advisory: d.advisory ?? null, price: Math.round(best.price),
+      depart: best.departure_at.slice(0, 10), return: best.return_at ? String(best.return_at).slice(0, 10) : null, airline: best.airline,
+      stops: Number(best.transfers) || 0, link: best.link || null };
+    const seen = seenDay(best);
+    if (seen) deal.seen = seen;
+    out.push(deal);
   }
   return out.sort((a, b) => a.price - b.price);
 }
@@ -67,16 +108,19 @@ export function deals(cheap, destinations) {
 export const METRO = { NYC: ['JFK', 'LGA', 'EWR'], CHI: ['ORD', 'MDW'], WAS: ['DCA', 'IAD', 'BWI'], HOU: ['IAH', 'HOU'], DFW: ['DFW', 'DAL'] };
 export const sameCity = (origin, code) => origin === code || (METRO[code] || []).includes(origin);
 
-/** /v1/prices/calendar?calendar_type=departure_date → { "2026-11-12": [price, airline, stops, return day or null] }, the
- *  cheapest round trip found leaving each day. (The day is the key, so it isn't repeated.) */
-export function calendarDays(data) {
+/** /aviasales/v3/prices_for_dates?origin=X&destination=Y&one_way=false (every round trip it has for the route, all
+ *  months in one request) → { "2026-11-12": [price, airline, stops, return day or null, day seen] }, the cheapest round
+ *  trip found leaving each day from that very airport. (The day is the key, so it isn't repeated.) Older feeds had
+ *  four items and no day seen; the app reads both. An object keyed by day (the old /v1/prices/calendar shape) works too. */
+export function calendarDays(data, origin = null, today = new Date().toISOString().slice(0, 10)) {
   const out = {};
   for (const t of Object.values(data || {})) {
-    const day = String(t?.departure_at || '').slice(0, 10);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !(t.price > 0) || !t.airline) continue;
-    const back = t.return_at ? String(t.return_at).slice(0, 10) : null;
-    if (!out[day] || out[day][0] > t.price) out[day] = [Math.round(t.price), t.airline, Number(t.transfers) || 0, back];
+    if (!usable(t, today)) continue;
+    if (origin && t.origin_airport && t.origin_airport !== origin) continue;
+    const day = t.departure_at.slice(0, 10), back = t.return_at ? String(t.return_at).slice(0, 10) : null;
+    if (!out[day] || out[day][0] > t.price) out[day] = [Math.round(t.price), t.airline, Number(t.transfers) || 0, back, seenDay(t)];
   }
+  for (const v of Object.values(out)) if (!v[4]) v.pop();
   return Object.fromEntries(Object.entries(out).sort());
 }
 
@@ -100,7 +144,7 @@ async function main() {
   if (!token) { console.error('Add TRAVELPAYOUTS_TOKEN to ClaudeApps/.env (Travelpayouts > Profile > API token).'); process.exit(2); }
   const destinations = JSON.parse(fs.readFileSync(DESTINATIONS, 'utf8'));
   const origins = process.argv.slice(2).length ? process.argv.slice(2).map(s => s.toUpperCase()) : ORIGINS;
-  const monthList = months(new Date(), 13), q = p => new URLSearchParams(p).toString();
+  const monthList = months(new Date(), 12), q = p => new URLSearchParams(p).toString(), today = new Date().toISOString().slice(0, 10);
   const flights = path.join(OUT, 'flights'), calendars = path.join(OUT, 'calendars');
   fs.mkdirSync(flights, { recursive: true });
   fs.mkdirSync(calendars, { recursive: true });
@@ -113,8 +157,8 @@ async function main() {
         to.push(...((await get(`/aviasales/v3/prices_for_dates?${q({ ...common, origin, destination: 'MCO' })}`, token)).data || []));
         from.push(...((await get(`/aviasales/v3/prices_for_dates?${q({ ...common, origin: 'MCO', destination: origin })}`, token)).data || []));
       }
-      const cheap = (await get(`/v1/prices/cheap?${q({ origin, destination: '-', currency: 'usd' })}`, token)).data;
-      const book = { origin, updated: new Date().toISOString().slice(0, 10), toOrlando: byDay(to), fromOrlando: byDay(from), deals: deals(cheap, destinations) };
+      const cheap = (await get(`/aviasales/v3/prices_for_dates?${q({ origin, one_way: 'false', unique: 'true', sorting: 'price', limit: '1000', currency: 'usd' })}`, token)).data;
+      const book = { origin, updated: today, toOrlando: byDay(to, today, { origin, destination: 'MCO' }), fromOrlando: byDay(from, today, { origin: 'MCO', destination: origin }), deals: deals(cheap, destinations, today) };
       fs.writeFileSync(path.join(flights, `${origin}.json`), JSON.stringify(book));
       console.log(`${origin}: ${Object.keys(book.toOrlando).length} days to Orlando, ${Object.keys(book.fromOrlando).length} back, ${book.deals.length} deals`);
     } catch (e) {
@@ -126,12 +170,12 @@ async function main() {
       let misses = 0;
       for (const code of codes) {
         try {
-          const days = calendarDays((await get(`/v1/prices/calendar?${q({ origin, destination: code, currency: 'usd', depart_date: monthList[0], calendar_type: 'departure_date' })}`, token)).data);
+          const days = calendarDays((await get(`/aviasales/v3/prices_for_dates?${q({ origin, destination: code, one_way: 'false', unique: 'false', sorting: 'price', limit: '1000', currency: 'usd' })}`, token)).data, origin, today);
           if (Object.keys(days).length) routes[code] = days;
         } catch (e) { misses++; console.error(`${origin}→${code}: ${e.message}`); }
       }
       if (misses === codes.length) throw new Error('every route failed');
-      fs.writeFileSync(path.join(calendars, `${origin}.json`), JSON.stringify({ origin, updated: new Date().toISOString().slice(0, 10), routes }));
+      fs.writeFileSync(path.join(calendars, `${origin}.json`), JSON.stringify({ origin, updated: today, routes }));
       console.log(`${origin}: calendars for ${Object.keys(routes).length} destinations`);
     } catch (e) {
       failedCalendars.push(origin);
