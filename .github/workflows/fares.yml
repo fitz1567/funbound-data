@@ -40,13 +40,17 @@ jobs:
       - name: Start from last night's files
         run: |
           site="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}"
-          mkdir -p site/flights site/calendars
+          mkdir -p site/flights site/calendars site/history
           if curl -fsS "$site/index.json" -o site/index.json; then
             for o in $(node -e 'console.log(JSON.parse(require("fs").readFileSync("site/index.json", "utf8")).origins.join(" "))'); do
               curl -fsS "$site/flights/$o.json" -o "site/flights/$o.json" || echo "No file yet for $o"
             done
             for o in $(node -e 'console.log((JSON.parse(require("fs").readFileSync("site/index.json", "utf8")).calendars || []).join(" "))'); do
               curl -fsS "$site/calendars/$o.json" -o "site/calendars/$o.json" || echo "No calendar yet for $o"
+            done
+            # The 90-night price history grows from last night's copy, so it has to come back each night.
+            for o in $(node -e 'console.log((JSON.parse(require("fs").readFileSync("site/index.json", "utf8")).history || []).join(" "))'); do
+              curl -fsS --retry 3 "$site/history/$o.json" -o "site/history/$o.json" || echo "No history yet for $o"
             done
           fi
       - name: Fetch tonight's fares

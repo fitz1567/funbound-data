@@ -5,6 +5,8 @@
 //   calendars/<AIRPORT>.json  each destination's price calendar: the cheapest round trip found for each departure day
 //                             (with its return day), from /aviasales/v3/prices_for_dates. Without a date it returns
 //                             every round trip it has for the route in one request, so it's one request a route.
+//   history/<AIRPORT>.json    the last 90 nights' cheapest round trip to each destination, one price a night, made from
+//                             the calendars and deals above (no extra requests), for "is this a good price?".
 // Every fare carries the day it was seen, and fares seen over a week ago are dropped (see MAX_AGE_DAYS).
 // The API token stays here (in .env or a GitHub Actions secret); the app never sees it.
 //   node fares.mjs [JFK LGA …]      -> site/data/flights/, site/data/calendars/ and site/data/index.json
@@ -124,6 +126,44 @@ export function calendarDays(data, origin = null, today = new Date().toISOString
   return Object.fromEntries(Object.entries(out).sort());
 }
 
+// Price history: each night's cheapest round trip to each destination, kept for HISTORY_DAYS nights. One file per home
+// airport: { "origin", "updated", "from": first night, "routes": { "CUN": [312, null, 298, …] } }, a price (or null for a
+// night with none) for every night from `from` through `updated`. A night that fails leaves a null, never a guess.
+export const HISTORY_DAYS = 90;
+// About 52 routes × 90 nights × 4 characters is 20 KB (5 KB gzipped); the cap keeps a bad night from growing it.
+export const HISTORY_MAX_BYTES = 48_000;
+
+/** Tonight's cheapest round trip to each destination: the lowest day in its calendar or its deal, whichever is lower. */
+export function cheapestTonight(routes = {}, dealList = []) {
+  const out = {};
+  for (const [code, days] of Object.entries(routes)) for (const [price] of Object.values(days)) if (price > 0 && !(out[code] <= price)) out[code] = price;
+  for (const d of dealList) if (d.price > 0 && !(out[d.destination] <= d.price)) out[d.destination] = d.price;
+  return out;
+}
+
+const isoDay = n => new Date(n * 86400000).toISOString().slice(0, 10);
+/** Adds tonight's prices to an airport's history (null or last night's file) and drops nights over HISTORY_DAYS old.
+ *  Running twice in a night replaces that night. Routes left with no price at all are dropped. */
+export function addNight(history, origin, today, prices) {
+  const end = dayNumber(today), start = end - HISTORY_DAYS + 1;
+  const oldFrom = history?.from && history?.updated ? dayNumber(history.from) : null;
+  const from = oldFrom === null ? end : Math.max(start, Math.min(oldFrom, end));
+  const length = end - from + 1, routes = {};
+  for (const code of new Set([...Object.keys(history?.routes || {}), ...Object.keys(prices)])) {
+    const row = Array(length).fill(null);
+    (history?.routes?.[code] || []).forEach((p, i) => { const at = oldFrom + i - from; if (at >= 0 && at < length && p > 0) row[at] = p; });
+    if (prices[code] > 0) row[length - 1] = prices[code];
+    if (row.some(p => p !== null)) routes[code] = row;
+  }
+  const out = { origin, updated: today, from: isoDay(from), routes };
+  // Over the cap (it shouldn't be): drop the oldest nights until it fits.
+  while (JSON.stringify(out).length > HISTORY_MAX_BYTES && Object.values(out.routes).some(r => r.length > 1)) {
+    for (const r of Object.values(out.routes)) r.shift();
+    out.from = isoDay(dayNumber(out.from) + 1);
+  }
+  return out;
+}
+
 const sleep = ms => new Promise(res => setTimeout(res, ms));
 // The token goes in a header, so it never appears in a URL or a log.
 async function get(pathAndQuery, token) {
@@ -145,11 +185,11 @@ async function main() {
   const destinations = JSON.parse(fs.readFileSync(DESTINATIONS, 'utf8'));
   const origins = process.argv.slice(2).length ? process.argv.slice(2).map(s => s.toUpperCase()) : ORIGINS;
   const monthList = months(new Date(), 12), q = p => new URLSearchParams(p).toString(), today = new Date().toISOString().slice(0, 10);
-  const flights = path.join(OUT, 'flights'), calendars = path.join(OUT, 'calendars');
-  fs.mkdirSync(flights, { recursive: true });
-  fs.mkdirSync(calendars, { recursive: true });
+  const flights = path.join(OUT, 'flights'), calendars = path.join(OUT, 'calendars'), histories = path.join(OUT, 'history');
+  for (const dir of [flights, calendars, histories]) fs.mkdirSync(dir, { recursive: true });
   const failed = [], failedCalendars = [];
   for (const origin of origins) {
+    let tonightDeals = [], tonightRoutes = {};
     try {
       const to = [], from = [];
       for (const month of monthList) {
@@ -160,6 +200,7 @@ async function main() {
       const cheap = (await get(`/aviasales/v3/prices_for_dates?${q({ origin, one_way: 'false', unique: 'true', sorting: 'price', limit: '1000', currency: 'usd' })}`, token)).data;
       const book = { origin, updated: today, toOrlando: byDay(to, today, { origin, destination: 'MCO' }), fromOrlando: byDay(from, today, { origin: 'MCO', destination: origin }), deals: deals(cheap, destinations, today) };
       fs.writeFileSync(path.join(flights, `${origin}.json`), JSON.stringify(book));
+      tonightDeals = book.deals;
       console.log(`${origin}: ${Object.keys(book.toOrlando).length} days to Orlando, ${Object.keys(book.fromOrlando).length} back, ${book.deals.length} deals`);
     } catch (e) {
       failed.push(origin);
@@ -176,14 +217,22 @@ async function main() {
       }
       if (misses === codes.length) throw new Error('every route failed');
       fs.writeFileSync(path.join(calendars, `${origin}.json`), JSON.stringify({ origin, updated: today, routes }));
+      tonightRoutes = routes;
       console.log(`${origin}: calendars for ${Object.keys(routes).length} destinations`);
     } catch (e) {
       failedCalendars.push(origin);
       console.error(`${origin} calendars: ${e.message} (keeping its last file, if any)`);
     }
+    // The history file comes from the requests above; last night's copy is in place (the workflow downloads it first).
+    const prices = cheapestTonight(tonightRoutes, tonightDeals), file = path.join(histories, `${origin}.json`);
+    if (Object.keys(prices).length) {
+      let last = null;
+      try { last = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { /* the first night */ }
+      fs.writeFileSync(file, JSON.stringify(addNight(last?.origin === origin ? last : null, origin, today, prices)));
+    }
   }
   const list = dir => fs.readdirSync(dir).filter(f => /^[A-Z]{3}\.json$/.test(f)).map(f => f.slice(0, 3)).sort();
-  fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify({ updated: new Date().toISOString(), origins: list(flights), calendars: list(calendars), failed, failedCalendars }, null, 1));
+  fs.writeFileSync(path.join(OUT, 'index.json'), JSON.stringify({ updated: new Date().toISOString(), origins: list(flights), calendars: list(calendars), history: list(histories), failed, failedCalendars }, null, 1));
   if (failed.length === origins.length) { console.error('Every airport failed.'); process.exit(1); }
 }
 

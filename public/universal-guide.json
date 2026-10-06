@@ -1,0 +1,194 @@
+{
+ "asOf": "2026-10-05",
+ "coverage": {
+  "from": "2026-10-05",
+  "to": "2027-12-31"
+ },
+ "sources": [
+  {
+   "name": "Universal Orlando: park tickets",
+   "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets"
+  },
+  {
+   "name": "Universal Orlando: ticket offer (3-day tickets)",
+   "url": "https://www.universalorlando.com/web/en/us/tickets-packages/offers/ticketoffer"
+  },
+  {
+   "name": "Universal Orlando reservations: hotel rates",
+   "url": "https://reservations.universalorlando.com/ibe/default.aspx?hgID=641&lang=en-us&currID=1"
+  },
+  {
+   "name": "Universal Orlando: hotel benefits",
+   "url": "https://www.universalorlando.com/web/en/us/places-to-stay/hotels/at-a-glance/hotels-benefits"
+  },
+  {
+   "name": "Universal Orlando: Express Passes",
+   "url": "https://www.universalorlando.com/web/en/us/tickets-packages/express-passes"
+  },
+  {
+   "name": "Universal Orlando blog: hotel transportation",
+   "url": "https://blog.discoveruniversal.com/where-to-stay/hotel-transportation-to-the-parks/"
+  }
+ ],
+ "taxes": {
+  "tickets": 0.065,
+  "hotel": 0.125
+ },
+ "hotels": [
+  {
+   "id": "surfside",
+   "name": "Endless Summer – Surfside Inn and Suites",
+   "tier": "value",
+   "from": 141,
+   "room": "Standard Room",
+   "getAround": "Shuttle buses to the parks",
+   "benefits": []
+  },
+  {
+   "id": "dockside",
+   "name": "Endless Summer – Dockside Inn and Suites",
+   "tier": "value",
+   "from": 157,
+   "room": "Standard Room",
+   "getAround": "Shuttle buses to the parks",
+   "benefits": []
+  },
+  {
+   "id": "cabana-bay",
+   "name": "Cabana Bay Beach Resort",
+   "tier": "value",
+   "from": 195,
+   "room": "Standard Room",
+   "getAround": "Walk or bus to the parks",
+   "benefits": []
+  },
+  {
+   "id": "aventura",
+   "name": "Aventura Hotel",
+   "tier": "primeValue",
+   "from": 189,
+   "room": "Standard Room",
+   "getAround": "Walk or bus to the parks",
+   "benefits": []
+  },
+  {
+   "id": "stella-nova",
+   "name": "Stella Nova Resort",
+   "tier": "primeValue",
+   "from": 192,
+   "room": "Standard Room",
+   "getAround": "Near Epic Universe; buses",
+   "benefits": []
+  },
+  {
+   "id": "terra-luna",
+   "name": "Terra Luna Resort",
+   "tier": "primeValue",
+   "from": 167,
+   "room": "Standard Room",
+   "getAround": "Near Epic Universe; buses",
+   "benefits": []
+  },
+  {
+   "id": "helios-grand",
+   "name": "Universal Helios Grand Hotel, a Loews Hotel",
+   "tier": "signature",
+   "from": 356,
+   "room": "Standard Room",
+   "getAround": "Its own entrance to Epic Universe",
+   "benefits": [
+    "epicEntrance"
+   ]
+  },
+  {
+   "id": "sapphire-falls",
+   "name": "Loews Sapphire Falls Resort",
+   "tier": "signature",
+   "from": 462,
+   "room": "Standard Room",
+   "getAround": "Water taxi or walk to the parks",
+   "benefits": []
+  },
+  {
+   "id": "royal-pacific",
+   "name": "Loews Royal Pacific Resort",
+   "tier": "signature",
+   "from": 492,
+   "room": "Standard Room",
+   "getAround": "Water taxi or walk to the parks",
+   "benefits": [
+    "expressUnlimited"
+   ]
+  },
+  {
+   "id": "portofino-bay",
+   "name": "Loews Portofino Bay Hotel",
+   "tier": "signature",
+   "from": 535,
+   "room": "Standard Room",
+   "getAround": "Water taxi or walk to the parks",
+   "benefits": [
+    "expressUnlimited"
+   ]
+  },
+  {
+   "id": "hard-rock",
+   "name": "Hard Rock Hotel",
+   "tier": "signature",
+   "from": 621,
+   "room": "Standard Room",
+   "getAround": "Walk to the parks",
+   "benefits": [
+    "expressUnlimited"
+   ]
+  }
+ ],
+ "tickets": {
+  "oneDay": [
+   {
+    "park": "Universal Studios Florida",
+    "price": 124.99
+   },
+   {
+    "park": "Universal Islands of Adventure",
+    "price": 124.99
+   },
+   {
+    "park": "Universal Epic Universe",
+    "price": 139.99
+   },
+   {
+    "park": "Universal Volcano Bay",
+    "price": 80.99
+   }
+  ],
+  "threeDayOneParkEach": 297,
+  "threeDayParkToPark": 357
+ },
+ "express": {
+  "published": false
+ },
+ "transport": {
+  "shuttle": {
+   "name": "SuperStar Shuttle",
+   "phone": "(800) 823-4733",
+   "published": false
+  },
+  "rideshare": {
+   "low": 35,
+   "high": 60
+  },
+  "rideshareXL": {
+   "low": 55,
+   "high": 90
+  },
+  "carService": {
+   "low": 130,
+   "high": 200
+  },
+  "rentalPerDay": {
+   "low": 45,
+   "high": 85
+  }
+ }
+}
