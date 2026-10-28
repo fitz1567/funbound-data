@@ -7,26 +7,32 @@
  "sources": [
   {
    "name": "Universal Orlando: park tickets",
+   "nameEs": "Universal Orlando: entradas a los parques (en inglés)",
    "url": "https://www.universalorlando.com/web/en/us/tickets-packages/park-tickets"
   },
   {
    "name": "Universal Orlando: ticket offer (3-day tickets)",
+   "nameEs": "Universal Orlando: oferta de entradas de 3 días (en inglés)",
    "url": "https://www.universalorlando.com/web/en/us/tickets-packages/offers/ticketoffer"
   },
   {
    "name": "Universal Orlando reservations: hotel rates",
+   "nameEs": "Reservaciones de Universal Orlando: tarifas de hotel (en inglés)",
    "url": "https://reservations.universalorlando.com/ibe/default.aspx?hgID=641&lang=en-us&currID=1"
   },
   {
    "name": "Universal Orlando: hotel benefits",
+   "nameEs": "Universal Orlando: beneficios de los hoteles (en inglés)",
    "url": "https://www.universalorlando.com/web/en/us/places-to-stay/hotels/at-a-glance/hotels-benefits"
   },
   {
    "name": "Universal Orlando: Express Passes",
+   "nameEs": "Universal Orlando: Express Pass (en inglés)",
    "url": "https://www.universalorlando.com/web/en/us/tickets-packages/express-passes"
   },
   {
    "name": "Universal Orlando blog: hotel transportation",
+   "nameEs": "Blog de Universal Orlando: transporte de los hoteles (en inglés)",
    "url": "https://blog.discoveruniversal.com/where-to-stay/hotel-transportation-to-the-parks/"
   }
  ],
@@ -41,7 +47,9 @@
    "tier": "value",
    "from": 141,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Shuttle buses to the parks",
+   "getAroundEs": "Autobuses de enlace a los parques",
    "benefits": []
   },
   {
@@ -50,7 +58,9 @@
    "tier": "value",
    "from": 157,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Shuttle buses to the parks",
+   "getAroundEs": "Autobuses de enlace a los parques",
    "benefits": []
   },
   {
@@ -59,7 +69,9 @@
    "tier": "value",
    "from": 195,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Walk or bus to the parks",
+   "getAroundEs": "A pie o en autobús a los parques",
    "benefits": []
   },
   {
@@ -68,7 +80,9 @@
    "tier": "primeValue",
    "from": 189,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Walk or bus to the parks",
+   "getAroundEs": "A pie o en autobús a los parques",
    "benefits": []
   },
   {
@@ -77,7 +91,9 @@
    "tier": "primeValue",
    "from": 192,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Near Epic Universe; buses",
+   "getAroundEs": "Cerca de Epic Universe; autobuses",
    "benefits": []
   },
   {
@@ -86,7 +102,9 @@
    "tier": "primeValue",
    "from": 167,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Near Epic Universe; buses",
+   "getAroundEs": "Cerca de Epic Universe; autobuses",
    "benefits": []
   },
   {
@@ -95,7 +113,9 @@
    "tier": "signature",
    "from": 356,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Its own entrance to Epic Universe",
+   "getAroundEs": "Entrada propia a Epic Universe",
    "benefits": [
     "epicEntrance"
    ]
@@ -106,7 +126,9 @@
    "tier": "signature",
    "from": 462,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Water taxi or walk to the parks",
+   "getAroundEs": "Taxi acuático o a pie a los parques",
    "benefits": []
   },
   {
@@ -115,7 +137,9 @@
    "tier": "signature",
    "from": 492,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Water taxi or walk to the parks",
+   "getAroundEs": "Taxi acuático o a pie a los parques",
    "benefits": [
     "expressUnlimited"
    ]
@@ -126,7 +150,9 @@
    "tier": "signature",
    "from": 535,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Water taxi or walk to the parks",
+   "getAroundEs": "Taxi acuático o a pie a los parques",
    "benefits": [
     "expressUnlimited"
    ]
@@ -137,7 +163,9 @@
    "tier": "signature",
    "from": 621,
    "room": "Standard Room",
+   "roomEs": "Habitación estándar",
    "getAround": "Walk to the parks",
+   "getAroundEs": "A pie a los parques",
    "benefits": [
     "expressUnlimited"
    ]

@@ -1063,5 +1063,89 @@
    "name": "Costa Rica",
    "blurb": "Selvas, volcanes y fauna."
   }
+ },
+ {
+  "id": "las-vegas",
+  "name": "Las Vegas",
+  "region": "Nevada",
+  "country": "United States",
+  "countryCode": "US",
+  "domestic": true,
+  "fareCode": "LAS",
+  "advisory": null,
+  "categories": [
+   "cities",
+   "music"
+  ],
+  "blurb": "Shows and the Strip, with Red Rock Canyon and Hoover Dam a short drive away.",
+  "lat": 36.17,
+  "lon": -115.14,
+  "es": {
+   "name": "Las Vegas",
+   "blurb": "Espectáculos y el Strip, con Red Rock Canyon y la presa Hoover a poca distancia."
+  }
+ },
+ {
+  "id": "paris",
+  "name": "Paris",
+  "region": "Île-de-France",
+  "country": "France",
+  "countryCode": "FR",
+  "domestic": false,
+  "fareCode": "PAR",
+  "advisory": "FR",
+  "categories": [
+   "cities",
+   "family"
+  ],
+  "blurb": "The Louvre, the Eiffel Tower and a café on every corner.",
+  "lat": 48.86,
+  "lon": 2.35,
+  "es": {
+   "name": "París",
+   "blurb": "El Louvre, la Torre Eiffel y un café en cada esquina."
+  }
+ },
+ {
+  "id": "punta-cana",
+  "name": "Punta Cana",
+  "region": "La Altagracia",
+  "country": "Dominican Republic",
+  "countryCode": "DO",
+  "domestic": false,
+  "fareCode": "PUJ",
+  "advisory": "DR",
+  "categories": [
+   "beaches",
+   "family"
+  ],
+  "blurb": "All-inclusive resorts on long, palm-lined beaches.",
+  "lat": 18.58,
+  "lon": -68.4,
+  "es": {
+   "name": "Punta Cana",
+   "blurb": "Resorts todo incluido en largas playas bordeadas de palmeras."
+  }
+ },
+ {
+  "id": "montego-bay",
+  "name": "Montego Bay",
+  "region": "Jamaica",
+  "country": "Jamaica",
+  "countryCode": "JM",
+  "domestic": false,
+  "fareCode": "MBJ",
+  "advisory": "JM",
+  "categories": [
+   "beaches",
+   "islands"
+  ],
+  "blurb": "Reggae, waterfalls and all-inclusive beach resorts.",
+  "lat": 18.47,
+  "lon": -77.92,
+  "es": {
+   "name": "Montego Bay",
+   "blurb": "Reggae, cascadas y resorts todo incluido junto al mar."
+  }
  }
 ]

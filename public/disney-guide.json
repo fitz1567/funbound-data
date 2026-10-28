@@ -9,22 +9,27 @@
  "sources": [
   {
    "name": "MouseSavers: 2026 and 2027 Disney resort rates and season dates",
+   "nameEs": "MouseSavers: tarifas de los resorts de Disney y fechas de temporada 2026 y 2027 (en inglés)",
    "url": "https://www.mousesavers.com/2027-pop-century-room-rates-season-dates/"
   },
   {
    "name": "MouseSavers: Walt Disney World ticket prices (tax included)",
+   "nameEs": "MouseSavers: precios de las entradas de Walt Disney World (con impuestos, en inglés)",
    "url": "https://www.mousesavers.com/regular-walt-disney-world-ticket-prices/"
   },
   {
    "name": "AllEars: Disney World announces 2027 ticket prices",
+   "nameEs": "AllEars: Disney World anuncia los precios de las entradas de 2027 (en inglés)",
    "url": "https://allears.net/2026/04/16/news-disney-world-announces-2027-ticket-prices/"
   },
   {
    "name": "Lightning Lane prices (2026)",
+   "nameEs": "Precios de Lightning Lane (2026, en inglés)",
    "url": "https://wdwprepschool.com/lightning-lane-passes/"
   },
   {
    "name": "Mears Connect fares",
+   "nameEs": "Tarifas de Mears Connect (en inglés)",
    "url": "https://www.mearsconnect.com/faq"
   }
  ],
@@ -34,6 +39,7 @@
    "from": "2026-10-01",
    "to": "2026-10-01",
    "season": "Fall",
+   "seasonEs": "temporada de otoño",
    "rates": [
     244,
     259,
@@ -45,6 +51,7 @@
    "from": "2026-10-02",
    "to": "2026-10-04",
    "season": "Special event",
+   "seasonEs": "temporada de evento especial",
    "rates": [
     332
    ],
@@ -54,6 +61,7 @@
    "from": "2026-10-05",
    "to": "2026-10-17",
    "season": "Fall",
+   "seasonEs": "temporada de otoño",
    "rates": [
     244,
     259,
@@ -65,6 +73,7 @@
    "from": "2026-10-18",
    "to": "2026-10-28",
    "season": "Fall 2",
+   "seasonEs": "temporada de otoño 2",
    "rates": [
     241,
     262,
@@ -76,6 +85,7 @@
    "from": "2026-10-29",
    "to": "2026-10-31",
    "season": "Halloween",
+   "seasonEs": "temporada de Halloween",
    "rates": [
     297
    ],
@@ -85,6 +95,7 @@
    "from": "2026-11-01",
    "to": "2026-11-18",
    "season": "Fall 2",
+   "seasonEs": "temporada de otoño 2",
    "rates": [
     241,
     262,
@@ -96,6 +107,7 @@
    "from": "2026-11-19",
    "to": "2026-11-27",
    "season": "Thanksgiving",
+   "seasonEs": "temporada de Acción de Gracias",
    "rates": [
     321
    ],
@@ -105,6 +117,7 @@
    "from": "2026-11-28",
    "to": "2026-12-03",
    "season": "Winter",
+   "seasonEs": "temporada de invierno",
    "rates": [
     262,
     303
@@ -115,6 +128,7 @@
    "from": "2026-12-04",
    "to": "2026-12-10",
    "season": "Winter 2",
+   "seasonEs": "temporada de invierno 2",
    "rates": [
     297,
     358
@@ -125,6 +139,7 @@
    "from": "2026-12-11",
    "to": "2026-12-23",
    "season": "Winter 3",
+   "seasonEs": "temporada de invierno 3",
    "rates": [
     379
    ],
@@ -134,6 +149,7 @@
    "from": "2026-12-24",
    "to": "2026-12-31",
    "season": "Holiday",
+   "seasonEs": "temporada de fiestas",
    "rates": [
     396
    ],
@@ -143,6 +159,7 @@
    "from": "2027-01-01",
    "to": "2027-01-01",
    "season": "New Year’s",
+   "seasonEs": "temporada de Año Nuevo",
    "rates": [
     396
    ],
@@ -152,6 +169,7 @@
    "from": "2027-01-02",
    "to": "2027-01-02",
    "season": "Holiday",
+   "seasonEs": "temporada de fiestas",
    "rates": [
     327
    ],
@@ -161,6 +179,7 @@
    "from": "2027-01-03",
    "to": "2027-01-07",
    "season": "Value",
+   "seasonEs": "temporada económica",
    "rates": [
     219,
     236,
@@ -172,6 +191,7 @@
    "from": "2027-01-08",
    "to": "2027-01-10",
    "season": "Marathon weekend",
+   "seasonEs": "temporada del fin de semana del maratón",
    "rates": [
     305
    ],
@@ -181,6 +201,7 @@
    "from": "2027-01-11",
    "to": "2027-02-03",
    "season": "Value",
+   "seasonEs": "temporada económica",
    "rates": [
     219,
     236,
@@ -192,6 +213,7 @@
    "from": "2027-02-04",
    "to": "2027-02-11",
    "season": "Spring",
+   "seasonEs": "temporada de primavera",
    "rates": [
     264,
     281,
@@ -203,6 +225,7 @@
    "from": "2027-02-12",
    "to": "2027-02-13",
    "season": "Presidents’ Day",
+   "seasonEs": "temporada del Día de los Presidentes",
    "rates": [
     353
    ],
@@ -212,6 +235,7 @@
    "from": "2027-02-14",
    "to": "2027-02-21",
    "season": "Spring 2",
+   "seasonEs": "temporada de primavera 2",
    "rates": [
     291,
     307,
@@ -223,6 +247,7 @@
    "from": "2027-02-22",
    "to": "2027-02-25",
    "season": "Spring",
+   "seasonEs": "temporada de primavera",
    "rates": [
     264,
     281,
@@ -234,6 +259,7 @@
    "from": "2027-02-26",
    "to": "2027-03-18",
    "season": "Spring 2",
+   "seasonEs": "temporada de primavera 2",
    "rates": [
     291,
     307,
@@ -245,6 +271,7 @@
    "from": "2027-03-19",
    "to": "2027-04-01",
    "season": "Easter",
+   "seasonEs": "temporada de Pascua",
    "rates": [
     354
    ],
@@ -254,6 +281,7 @@
    "from": "2027-04-02",
    "to": "2027-04-10",
    "season": "Spring 2",
+   "seasonEs": "temporada de primavera 2",
    "rates": [
     291,
     307,
@@ -265,6 +293,7 @@
    "from": "2027-04-11",
    "to": "2027-04-22",
    "season": "Spring",
+   "seasonEs": "temporada de primavera",
    "rates": [
     264,
     281,
@@ -276,6 +305,7 @@
    "from": "2027-04-23",
    "to": "2027-04-24",
    "season": "Spring 2",
+   "seasonEs": "temporada de primavera 2",
    "rates": [
     291,
     307,
@@ -287,6 +317,7 @@
    "from": "2027-04-25",
    "to": "2027-05-23",
    "season": "Regular",
+   "seasonEs": "temporada regular",
    "rates": [
     258,
     276,
@@ -298,6 +329,7 @@
    "from": "2027-05-24",
    "to": "2027-05-27",
    "season": "Summer",
+   "seasonEs": "temporada de verano",
    "rates": [
     269,
     317
@@ -308,6 +340,7 @@
    "from": "2027-05-28",
    "to": "2027-05-30",
    "season": "Summer holiday",
+   "seasonEs": "temporada de feriado de verano",
    "rates": [
     330
    ],
@@ -317,6 +350,7 @@
    "from": "2027-05-31",
    "to": "2027-07-01",
    "season": "Summer",
+   "seasonEs": "temporada de verano",
    "rates": [
     269,
     317
@@ -327,6 +361,7 @@
    "from": "2027-07-02",
    "to": "2027-07-03",
    "season": "Summer holiday",
+   "seasonEs": "temporada de feriado de verano",
    "rates": [
     330
    ],
@@ -336,6 +371,7 @@
    "from": "2027-07-04",
    "to": "2027-07-31",
    "season": "Summer",
+   "seasonEs": "temporada de verano",
    "rates": [
     269,
     317
@@ -346,6 +382,7 @@
    "from": "2027-08-01",
    "to": "2027-08-14",
    "season": "Summer 2",
+   "seasonEs": "temporada de verano 2",
    "rates": [
     252,
     271,
@@ -357,6 +394,7 @@
    "from": "2027-08-15",
    "to": "2027-09-02",
    "season": "Value 2",
+   "seasonEs": "temporada económica 2",
    "rates": [
     232,
     252,
@@ -368,6 +406,7 @@
    "from": "2027-09-03",
    "to": "2027-09-05",
    "season": "Labor Day",
+   "seasonEs": "temporada del Día del Trabajo",
    "rates": [
     295
    ],
@@ -377,6 +416,7 @@
    "from": "2027-09-06",
    "to": "2027-09-30",
    "season": "Fall",
+   "seasonEs": "temporada de otoño",
    "rates": [
     255,
     270,
@@ -388,6 +428,7 @@
    "from": "2027-10-01",
    "to": "2027-10-03",
    "season": "Special event",
+   "seasonEs": "temporada de evento especial",
    "rates": [
     353
    ],
@@ -397,6 +438,7 @@
    "from": "2027-10-04",
    "to": "2027-10-16",
    "season": "Fall",
+   "seasonEs": "temporada de otoño",
    "rates": [
     255,
     270,
@@ -408,6 +450,7 @@
    "from": "2027-10-17",
    "to": "2027-10-27",
    "season": "Fall 2",
+   "seasonEs": "temporada de otoño 2",
    "rates": [
     262,
     288,
@@ -419,6 +462,7 @@
    "from": "2027-10-28",
    "to": "2027-10-30",
    "season": "Special event",
+   "seasonEs": "temporada de evento especial",
    "rates": [
     302
    ],
@@ -428,6 +472,7 @@
    "from": "2027-10-31",
    "to": "2027-11-19",
    "season": "Fall 2",
+   "seasonEs": "temporada de otoño 2",
    "rates": [
     262,
     288,
@@ -439,6 +484,7 @@
    "from": "2027-11-20",
    "to": "2027-11-26",
    "season": "Thanksgiving",
+   "seasonEs": "temporada de Acción de Gracias",
    "rates": [
     338
    ],
@@ -448,6 +494,7 @@
    "from": "2027-11-27",
    "to": "2027-11-27",
    "season": "Winter",
+   "seasonEs": "temporada de invierno",
    "rates": [
     330
    ],
@@ -457,6 +504,7 @@
    "from": "2027-11-28",
    "to": "2027-11-30",
    "season": "Winter 2",
+   "seasonEs": "temporada de invierno 2",
    "rates": [
     323
    ],
@@ -466,6 +514,7 @@
    "from": "2027-12-01",
    "to": "2027-12-03",
    "season": "Winter 2",
+   "seasonEs": "temporada de invierno 2",
    "rates": [
     323
    ],
@@ -475,6 +524,7 @@
    "from": "2027-12-04",
    "to": "2027-12-10",
    "season": "Winter 2",
+   "seasonEs": "temporada de invierno 2",
    "rates": [
     309,
     372
@@ -485,6 +535,7 @@
    "from": "2027-12-11",
    "to": "2027-12-23",
    "season": "Winter 3",
+   "seasonEs": "temporada de invierno 3",
    "rates": [
     394
    ],
@@ -494,6 +545,7 @@
    "from": "2027-12-24",
    "to": "2027-12-31",
    "season": "Holiday",
+   "seasonEs": "temporada de fiestas",
    "rates": [
     412
    ],
@@ -509,7 +561,9 @@
    "low": 219,
    "high": 354,
    "getAround": "Skyliner to EPCOT and Hollywood Studios; buses",
-   "parking": 15
+   "parking": 15,
+   "roomEs": "Habitación estándar",
+   "getAroundEs": "Skyliner a EPCOT y Hollywood Studios; autobuses"
   },
   {
    "id": "all-star-movies",
@@ -519,7 +573,9 @@
    "low": 159,
    "high": 281,
    "getAround": "Buses",
-   "parking": 15
+   "parking": 15,
+   "roomEs": "Habitación estándar",
+   "getAroundEs": "Autobuses"
   },
   {
    "id": "art-of-animation",
@@ -529,7 +585,9 @@
    "low": 260,
    "high": 402,
    "getAround": "Skyliner to EPCOT and Hollywood Studios; buses",
-   "parking": 15
+   "parking": 15,
+   "roomEs": "Habitación estándar de La Sirenita",
+   "getAroundEs": "Skyliner a EPCOT y Hollywood Studios; autobuses"
   },
   {
    "id": "coronado-springs",
@@ -539,7 +597,9 @@
    "low": 303,
    "high": 444,
    "getAround": "Buses",
-   "parking": 20
+   "parking": 20,
+   "roomEs": "Village, ubicación estándar",
+   "getAroundEs": "Autobuses"
   },
   {
    "id": "caribbean-beach",
@@ -549,7 +609,9 @@
    "low": 330,
    "high": 452,
    "getAround": "Skyliner hub; buses",
-   "parking": 20
+   "parking": 20,
+   "roomEs": "Ubicación estándar",
+   "getAroundEs": "Estación central del Skyliner; autobuses"
   },
   {
    "id": "port-orleans-french-quarter",
@@ -559,7 +621,9 @@
    "low": 336,
    "high": 457,
    "getAround": "Boat to Disney Springs; buses",
-   "parking": 20
+   "parking": 20,
+   "roomEs": "Ubicación estándar",
+   "getAroundEs": "Barco a Disney Springs; autobuses"
   },
   {
    "id": "animal-kingdom-lodge",
@@ -569,7 +633,9 @@
    "low": 593,
    "high": 784,
    "getAround": "Buses; savanna animals outside",
-   "parking": 25
+   "parking": 25,
+   "roomEs": "Vista al resort",
+   "getAroundEs": "Autobuses; animales de la sabana afuera"
   },
   {
    "id": "wilderness-lodge",
@@ -579,7 +645,9 @@
    "low": 658,
    "high": 922,
    "getAround": "Boat to Magic Kingdom; buses",
-   "parking": 25
+   "parking": 25,
+   "roomEs": "Vista al resort",
+   "getAroundEs": "Barco a Magic Kingdom; autobuses"
   },
   {
    "id": "contemporary",
@@ -589,7 +657,9 @@
    "low": 735,
    "high": 872,
    "getAround": "Walk or monorail to Magic Kingdom",
-   "parking": 25
+   "parking": 25,
+   "roomEs": "Garden Wing, vista al resort",
+   "getAroundEs": "A pie o en monorriel a Magic Kingdom"
   },
   {
    "id": "beach-club",
@@ -599,7 +669,9 @@
    "low": 748,
    "high": 996,
    "getAround": "Walk to EPCOT; boat to Hollywood Studios",
-   "parking": 25
+   "parking": 25,
+   "roomEs": "Vista al resort",
+   "getAroundEs": "A pie a EPCOT; barco a Hollywood Studios"
   },
   {
    "id": "polynesian",
@@ -609,7 +681,9 @@
    "low": 883,
    "high": 1144,
    "getAround": "Monorail and boat to Magic Kingdom",
-   "parking": 25
+   "parking": 25,
+   "roomEs": "Vista al resort",
+   "getAroundEs": "Monorriel y barco a Magic Kingdom"
   },
   {
    "id": "grand-floridian",
@@ -619,7 +693,9 @@
    "low": 961,
    "high": 1276,
    "getAround": "Monorail, boat and walkway to Magic Kingdom",
-   "parking": 25
+   "parking": 25,
+   "roomEs": "Vista al resort",
+   "getAroundEs": "Monorriel, barco y camino peatonal a Magic Kingdom"
   }
  ],
  "tickets": {
