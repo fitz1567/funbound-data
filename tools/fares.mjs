@@ -18,10 +18,11 @@ import path from 'node:path';
 
 const HERE = import.meta.dirname, OUT = process.env.FUNBOUND_OUT || path.join(HERE, '../site/data');
 const DESTINATIONS = process.env.FUNBOUND_DESTINATIONS || path.join(HERE, '../Packages/TripKit/Sources/TripKit/Resources/destinations.json');
-// The nightly budget, for the 42 airports and 51 destinations: per airport 25 requests for Orlando and the deals, plus one
-// calendar request per destination (same-city routes are skipped), so about 42 × 75 ≈ 3,150 requests a night. They go one
+// The nightly budget, for the 42 airports and 55 destinations (54 fare codes: Zion and Las Vegas share LAS): per airport 25
+// requests for Orlando and the deals, plus one calendar request per fare code (same-city routes are skipped), so about
+// 42 × 79 ≈ 3,320 requests a night. They go one
 // at a time with a pause after each, which keeps them under 100 a minute (Travelpayouts allows 600 a minute for
-// prices_for_dates). The run takes about 50 minutes.
+// prices_for_dates). The run takes about 55 minutes.
 const PAUSE_MS = Number(process.env.FUNBOUND_PAUSE_MS ?? 600);
 const API = 'https://api.travelpayouts.com';
 // The busiest U.S. airports, plus a few Disney-heavy ones. Others fall back to estimates in the app.
@@ -89,10 +90,14 @@ export function byDay(offers, today = new Date().toISOString().slice(0, 10), air
 
 /** /aviasales/v3/prices_for_dates?origin=X&one_way=false&unique=true (the cheapest round trip to each place found
  *  lately) → the cheapest to each curated destination, cheapest first, each with its own booking link (the exact
- *  ticket, for one adult) and the day it was seen. A destination's code can be a city (LON) or an airport (MCO). */
+ *  ticket, for one adult) and the day it was seen. A destination's code can be a city (LON) or an airport (MCO).
+ *  Places that share an airport (Zion and Las Vegas both fly to LAS) get one deal for the code, named for the first of
+ *  them, as the app and the site show that fare under every place with the code (older apps under the first). */
 export function deals(tickets, destinations, today = new Date().toISOString().slice(0, 10)) {
-  const out = [];
+  const out = [], codes = new Set();
   for (const d of destinations) {
+    if (codes.has(d.fareCode)) continue;
+    codes.add(d.fareCode);
     const best = (tickets || []).filter(t => (t.destination === d.fareCode || t.destination_airport === d.fareCode) && usable(t, today))
       .sort((a, b) => a.price - b.price)[0];
     if (!best) continue;
@@ -130,7 +135,7 @@ export function calendarDays(data, origin = null, today = new Date().toISOString
 // airport: { "origin", "updated", "from": first night, "routes": { "CUN": [312, null, 298, …] } }, a price (or null for a
 // night with none) for every night from `from` through `updated`. A night that fails leaves a null, never a guess.
 export const HISTORY_DAYS = 90;
-// About 52 routes × 90 nights × 4 characters is 20 KB (5 KB gzipped); the cap keeps a bad night from growing it.
+// About 54 routes × 90 nights × 4 characters is 20 KB (5 KB gzipped); the cap keeps a bad night from growing it.
 export const HISTORY_MAX_BYTES = 48_000;
 
 /** Tonight's cheapest round trip to each destination: the lowest day in its calendar or its deal, whichever is lower. */
